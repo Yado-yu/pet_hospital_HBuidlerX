@@ -216,18 +216,17 @@
       },
 	  //登录
 	  async login() {
-		  this.tn('/pages')
-		  // try {
-			 //  const res = await loginAPI(this.loginUsername, this.loginPassword)
-			 //  console.log(res, 'res')
-			 //  if(res.code === 200) {
-				//   if(res.data.status === 0) {
-					  
-				//   }
-			 //  }
-		  // } catch (err) {
-			 //  console.error(err)
-		  // }
+		  try {
+			  const res = await loginAPI(this.loginUsername, this.loginPassword)
+			  console.log(res, 'res')
+			  if(res.status === 200) {
+				  if(res.data.status === 0) {
+					  this.tn('/pages/index')
+				  }
+			  }
+		  } catch (err) {
+			  console.error(err)
+		  }
 	  }
     }
   }
