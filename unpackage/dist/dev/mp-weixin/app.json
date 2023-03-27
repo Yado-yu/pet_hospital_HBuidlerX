@@ -1,0 +1,90 @@
+{
+  "pages": [
+    "pages/index"
+  ],
+  "subPackages": [
+    {
+      "root": "homePages",
+      "pages": [
+        "about",
+        "search",
+        "hot",
+        "navigation",
+        "profession",
+        "loading"
+      ]
+    },
+    {
+      "root": "circlePages",
+      "pages": [
+        "blogger",
+        "ranking",
+        "group",
+        "business",
+        "advertise",
+        "king",
+        "news",
+        "blogger_other",
+        "details",
+        "reserve",
+        "edit",
+        "create",
+        "build",
+        "chat"
+      ]
+    },
+    {
+      "root": "activityPages",
+      "pages": [
+        "project",
+        "planet",
+        "map",
+        "study",
+        "topic"
+      ]
+    },
+    {
+      "root": "preferredPages",
+      "pages": [
+        "classify",
+        "website",
+        "redeem",
+        "product",
+        "award",
+        "awardget",
+        "order",
+        "photo",
+        "shop"
+      ]
+    },
+    {
+      "root": "minePages",
+      "pages": [
+        "protocol",
+        "avatar",
+        "collect",
+        "content",
+        "default",
+        "help",
+        "integral",
+        "login",
+        "message",
+        "reward",
+        "safety",
+        "set",
+        "signed",
+        "start",
+        "thanks",
+        "version"
+      ]
+    }
+  ],
+  "window": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "图鸟UI+圈子",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}
