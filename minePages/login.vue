@@ -151,6 +151,8 @@
       :seconds="60"
       @change="codeChange">
     </tn-verification-code>
+	<!-- 弹出层 -->
+	  <tn-tips ref="tips" position="top"></tn-tips>
   </view>
 </template>
 
@@ -222,6 +224,17 @@
 			  if(res.status === 200) {
 				  if(res.data.status === 0) {
 					  this.tn('/pages/index')
+					  this.$refs.tips.show({
+						msg: '登录成功！',
+						backgroundColor: '#28c230',
+						fontColor: '#FFFFFF'
+					  })
+				  } else {
+					  this.$refs.tips.show({
+						msg: '账号或密码错误',
+						backgroundColor: '#f64545',
+						fontColor: '#FFFFFF'
+					  })
 				  }
 			  }
 		  } catch (err) {
