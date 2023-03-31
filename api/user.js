@@ -15,3 +15,13 @@ export const loginAPI = (username, password) => {
 	}
   })
 }
+
+// 用户 - 获取用户信息
+export const getUserInfoAPI = (token) => {
+  return request({
+    url: '/my/userinfo',
+	headers: {
+	  'Authorization': token,
+	}
+  })
+}

@@ -99,7 +99,10 @@
 
           <view class="tn-flex login__info__item__button">
             <view class="tn-flex-1 justify-content-item tn-text-center">
-              <tn-button v-if="currentModeIndex === 0" shape="round" backgroundColor="tn-cool-bg-color-7--reverse" padding="40rpx 0" width="100%" shadow fontBold @click="login()">
+              <tn-button v-if="currentModeIndex === 0" shape="round" :disabled="loginLoading"
+				backgroundColor="tn-cool-bg-color-7--reverse" padding="40rpx 0" 
+				width="100%" shadow fontBold @click="login()">
+				<tn-loading mode="circle" :show="loginLoading" color="#AAAAAA"></tn-loading>
                 <text class="tn-color-white" hover-class="tn-hover" :hover-stay-time="150">
                   登 录
                 </text>
@@ -157,7 +160,7 @@
 </template>
 
 <script>
-  import { loginAPI } from '../api/index.js'
+  import { loginAPI, getUserInfoAPI } from '../api/user.js'
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
   export default {
     name: 'templateLogin',
@@ -174,6 +177,8 @@
         showPassword: false,
         // 倒计时提示文字
         tips: '获取验证码',
+		//登录按钮禁用
+		loginLoading: false,
 		//登录用户账号
 		loginUsername: '',
 		//登录用户密码
@@ -218,17 +223,28 @@
       },
 	  //登录
 	  async login() {
+		  this.loginLoading = true
 		  try {
 			  const res = await loginAPI(this.loginUsername, this.loginPassword)
 			  console.log(res, 'res')
 			  if(res.status === 200) {
 				  if(res.data.status === 0) {
-					  this.tn('/pages/index')
-					  this.$refs.tips.show({
-						msg: '登录成功！',
-						backgroundColor: '#28c230',
-						fontColor: '#FFFFFF'
-					  })
+					  console.log(res.data.token, 'token')
+					  uni.setStorage({
+					  	key: 'userToken',
+					  	data: res.data.token,
+					  	success: async function () {
+					  		console.log('success');
+							const test = await getUserInfoAPI(res.data.token)
+							console.log(test)
+					  	}
+					  });
+					 //  this.$refs.tips.show({
+						// msg: '登录成功！',
+						// backgroundColor: '#28c230',
+						// fontColor: '#FFFFFF'
+					 //  })
+					 //  this.tn('/pages/index')
 				  } else {
 					  this.$refs.tips.show({
 						msg: '账号或密码错误',
@@ -240,6 +256,7 @@
 		  } catch (err) {
 			  console.error(err)
 		  }
+		  this.loginLoading = false
 	  }
     }
   }
