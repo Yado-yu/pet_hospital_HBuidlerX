@@ -160,8 +160,10 @@
 </template>
 
 <script>
-  import { loginAPI, getUserInfoAPI } from '../api/user.js'
+  import { loginAPI } from '../api/user.js'
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import { mapActions } from 'vuex'
+  
   export default {
     name: 'templateLogin',
     mixins: [template_page_mixin],
@@ -226,25 +228,21 @@
 		  this.loginLoading = true
 		  try {
 			  const res = await loginAPI(this.loginUsername, this.loginPassword)
-			  console.log(res, 'res')
 			  if(res.status === 200) {
 				  if(res.data.status === 0) {
-					  console.log(res.data.token, 'token')
 					  uni.setStorage({
 					  	key: 'userToken',
 					  	data: res.data.token,
-					  	success: async function () {
-					  		console.log('success');
-							const test = await getUserInfoAPI(res.data.token)
-							console.log(test)
+					  	success: async () => {
+							this.getUserInfo(res.data.token)
+							this.tn('/pages/index')
 					  	}
-					  });
+					  })
 					 //  this.$refs.tips.show({
 						// msg: '登录成功！',
 						// backgroundColor: '#28c230',
 						// fontColor: '#FFFFFF'
 					 //  })
-					 //  this.tn('/pages/index')
 				  } else {
 					  this.$refs.tips.show({
 						msg: '账号或密码错误',
@@ -257,7 +255,8 @@
 			  console.error(err)
 		  }
 		  this.loginLoading = false
-	  }
+	  },
+	  ...mapActions('userAbout', {getUserInfo: 'getUserInfo'})
     }
   }
 </script>

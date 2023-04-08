@@ -55,7 +55,7 @@
             </view>
             <view class="tn-padding-right">
               <view class="tn-padding-right tn-padding-left-sm tn-text-xl tn-text-bold">
-                <text class="tn-color-brown--dark">抓住那只北北猪</text>
+                <text class="tn-color-brown--dark">{{userInfo.nickname}}</text>
               </view>
               <view class="tn-padding-right tn-padding-top-xs tn-padding-left-sm tn-text-ellipsis">
                 <text class="tn-color-brown" style="opacity: 0.5;">认证会员</text>
@@ -293,12 +293,17 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+	
   export default {
     name: 'Mine',
     data() {
       return {
       }
     },
+	computed: {
+		...mapState('userAbout', ['userInfo'])
+	},
     methods: {
       // 跳转到图鸟官网
       navTuniaoWebsite() {

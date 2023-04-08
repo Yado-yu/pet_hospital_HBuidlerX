@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为Tuniao UI的集成样式文件，为scss预处理器，其中包含了一些"tn-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * Tuniao UI自定义的css类名和scss变量，均以"tn-"开头，不会造成冲突，请放心使用 
+ */
+/*注意问题：
+ 1、fixed 元素宽度无法自适应，所以增加了子元素
+ 2、fixed 和 display冲突导致动画效果消失，暂时使用visibility替代
+*/
+.tn-tips.data-v-a7757a58 {
+  height: auto;
+  position: fixed;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.tn-tips__content.data-v-a7757a58 {
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #FFFFFF;
+}
+.tn-tips--top.data-v-a7757a58 {
+  width: 100% !important;
+  /* padding: 18rpx 30rpx; */
+  top: 0;
+  left: 0;
+  -webkit-transform: translateY(-100%) translateZ(0);
+          transform: translateY(-100%) translateZ(0);
+  word-break: break-all;
+}
+.tn-tips--center.data-v-a7757a58 {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.tn-tips--bottom.data-v-a7757a58 {
+  bottom: 120rpx;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.tn-tips--center .content.data-v-a7757a58, .tn-tips--bottom .content.data-v-a7757a58 {
+  border-radius: 8rpx;
+  padding: 0;
+}
+.tn-tips--center .tn-tips__content.data-v-a7757a58, .tn-tips--bottom .tn-tips__content.data-v-a7757a58 {
+  padding: 18rpx 30rpx !important;
+}
+.tn-tips--show.data-v-a7757a58 {
+  opacity: 1;
+}
+.tn-tips--show.tn-tips--top.data-v-a7757a58 {
+  -webkit-transform: translateY(0) translateZ(0) !important;
+          transform: translateY(0) translateZ(0) !important;
+}
+

@@ -4,6 +4,8 @@
   "usingComponents": {
     "tn-nav-bar": "/tuniao-ui/components/tn-nav-bar/tn-nav-bar",
     "tn-button": "/tuniao-ui/components/tn-button/tn-button",
-    "tn-verification-code": "/tuniao-ui/components/tn-verification-code/tn-verification-code"
+    "tn-loading": "/tuniao-ui/components/tn-loading/tn-loading",
+    "tn-verification-code": "/tuniao-ui/components/tn-verification-code/tn-verification-code",
+    "tn-tips": "/tuniao-ui/components/tn-tips/tn-tips"
   }
 }

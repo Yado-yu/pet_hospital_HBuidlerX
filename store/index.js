@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import userAbout from './user.js'
 
 Vue.use(Vuex)
 
@@ -69,6 +70,9 @@ const store = new Vuex.Store({
     }
   },
   actions: {
+  },
+  modules: {
+	  userAbout,
   }
 })
 
