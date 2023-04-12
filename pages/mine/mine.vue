@@ -299,11 +299,16 @@
     name: 'Mine',
     data() {
       return {
-		  isLogin : true
+		  isLogin : false
       }
     },
 	computed: {
 		...mapState('userAbout', ['userInfo'])
+	},
+	watch: {
+		userInfo(userInfo) {
+			this.isLogin = userInfo ? true : false
+		}
 	},
     methods: {
       // 跳转到图鸟官网
