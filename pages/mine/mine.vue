@@ -44,7 +44,7 @@
 
     <view class="about__wrap">
       <!-- 图标logo/头像 -->
-      <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin-bottom">
+      <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin-bottom" v-if="isLogin">
         <view class="justify-content-item">
           <view class="tn-flex tn-flex-col-center tn-flex-row-left" @click="tn('/minePages/set')">
             <view class="logo-pic tn-shadow">
@@ -68,16 +68,16 @@
       </view>
       
       <!-- 授权按钮-->
-      <!-- <view class="tn-flex tn-flex-row-between" @click="tn('/minePages/login')">
+      <view class="tn-flex tn-flex-row-between" @click="tn('/minePages/login')" v-if="!isLogin">
         <view class="tn-flex-1 justify-content-item tn-margin-xs tn-text-center">
           <tn-button shape="round" backgroundColor="#00d886" fontColor="#ffffff" padding="20rpx 0" width="40%" shadow>
             <text class="tn-icon-wechat tn-padding-right-xs tn-text-xl"></text>
             <text class="">授权登录</text>
           </tn-button>
         </view>
-      </view> -->
+      </view>
       
-      <!-- <view class="" style="padding-top: 60rpx;">
+      <!-- <view class="" style="padding-top: 60rpx;" v-if="!isLogin">
         <view class="nav_title--wrap">
           <view class="nav_title">
             <text class="tn-icon-relation tn-padding-right-sm tn-text-xxl"></text>
@@ -88,7 +88,7 @@
       </view> -->
       
       
-      <!-- <view class="tn-flex tn-flex-row-between tn-padding-top-xl">
+      <!-- <view class="tn-flex tn-flex-row-between tn-padding-top-xl" v-if="!isLogin">
         <view class="justify-content-item tn-text-bold tn-text-lg">
           <text class="">常用功能</text>
         </view>
@@ -299,6 +299,7 @@
     name: 'Mine',
     data() {
       return {
+		  isLogin: false
       }
     },
 	computed: {
