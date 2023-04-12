@@ -3,7 +3,7 @@ import { getUserInfoAPI } from '../api/user.js'
 export default {
 	namespaced: true,
 	state: {
-		userInfo: {},
+		userInfo: uni.getStorageSync('userInfo') || {},
 	},
 	actions: {
 		async getUserInfo( { commit }, token) {
@@ -22,6 +22,10 @@ export default {
 	mutations: {
 		GET_USERINFO(state, { data }) {
 			state.userInfo = data
+			uni.setStorage({
+				key: 'userInfo',
+				data
+			})
 			// console.log(state)
 		}
 	},

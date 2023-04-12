@@ -102,6 +102,9 @@
       })
       this.switchTabbar(index)
     },
+	onShow() {
+		// console.log(123)
+	},
     methods: {
       // 切换导航
       switchTabbar(index) {

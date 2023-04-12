@@ -299,7 +299,7 @@
     name: 'Mine',
     data() {
       return {
-		  isLogin: false
+		  isLogin : true
       }
     },
 	computed: {
