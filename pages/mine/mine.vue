@@ -299,7 +299,7 @@
     name: 'Mine',
     data() {
       return {
-		  isLogin : false
+		  // isLogin : false
       }
     },
 	computed: {
@@ -308,6 +308,7 @@
 	watch: {
 		userInfo(userInfo) {
 			this.isLogin = userInfo ? true : false
+			console.log(333)
 		}
 	},
     methods: {

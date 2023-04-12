@@ -27,6 +27,15 @@ export default {
 				data
 			})
 			// console.log(state)
+		},
+		QUIT_LOGIN(state) {
+			state.userInfo = {}
+			uni.removeStorage({
+				key: 'userToken'
+			})
+			uni.removeStorage({
+				key: 'userInfo'
+			})
 		}
 	},
 	getters: {}

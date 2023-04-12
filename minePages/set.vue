@@ -53,7 +53,7 @@
       
       <!-- 悬浮按钮-->
       <view class="tn-flex  tn-footerfixed">
-        <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center" @click="tn('/minePages/login')">
+        <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center" @click="quitLogin()">
           <tn-button shape="round" backgroundColor="tn-cool-bg-color-15" padding="40rpx 0" width="60%" shadow fontBold>
             <!-- <text class="tn-icon-light tn-padding-right-xs tn-color-black"></text> -->
             <text class="tn-color-white">退出登录</text>
@@ -100,7 +100,6 @@
       }
     },
     methods: {
-      
       tn(url) {
       	try {
       		uni.navigateTo({
@@ -115,6 +114,11 @@
       		});
       	}
       },
+	  //退出登录
+	  quitLogin() {
+		  this.$store.commit('userAbout/QUIT_LOGIN')
+		  this.tn('/minePages/login')
+	  }
     }
   }
 </script>
