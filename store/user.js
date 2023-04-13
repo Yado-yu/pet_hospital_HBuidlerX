@@ -4,6 +4,7 @@ export default {
 	namespaced: true,
 	state: {
 		userInfo: uni.getStorageSync('userInfo') || {},
+		isLogin: uni.getStorageSync('userInfo') ? true : false
 	},
 	actions: {
 		async getUserInfo( { commit }, token) {
@@ -22,6 +23,7 @@ export default {
 	mutations: {
 		GET_USERINFO(state, { data }) {
 			state.userInfo = data
+			state.isLogin = true
 			uni.setStorage({
 				key: 'userInfo',
 				data
@@ -30,6 +32,7 @@ export default {
 		},
 		QUIT_LOGIN(state) {
 			state.userInfo = {}
+			state.isLogin = false
 			uni.removeStorage({
 				key: 'userToken'
 			})

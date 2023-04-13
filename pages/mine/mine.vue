@@ -303,13 +303,7 @@
       }
     },
 	computed: {
-		...mapState('userAbout', ['userInfo'])
-	},
-	watch: {
-		userInfo(userInfo) {
-			this.isLogin = userInfo ? true : false
-			console.log(333)
-		}
+		...mapState('userAbout', ['userInfo', 'isLogin'])
 	},
     methods: {
       // 跳转到图鸟官网
