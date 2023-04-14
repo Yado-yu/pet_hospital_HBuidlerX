@@ -38,10 +38,10 @@
           <block v-if="currentModeIndex === 0">
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
-                <view class="tn-icon-phone"></view>
+                <view class="tn-icon-my"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input v-model="loginUsername" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入登录手机号码" />
+                <input v-model="loginUsername" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入用户名" />
               </view>
             </view>
             
@@ -61,14 +61,32 @@
           <block v-if="currentModeIndex === 1">
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
-                <view class="tn-icon-phone"></view>
+                <view class="tn-icon-my"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册手机号码" />
+                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册用户名" />
               </view>
             </view>
+			
+			<view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+			  <view class="login__info__item__input__left-icon">
+			    <view class="tn-icon-my-fill"></view>
+			  </view>
+			  <view class="login__info__item__input__content">
+			    <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入昵称" />
+			  </view>
+			</view>
+			
+			<view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+			  <view class="login__info__item__input__left-icon">
+			    <view class="tn-icon-message"></view>
+			  </view>
+			  <view class="login__info__item__input__content">
+			    <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入电子邮箱" />
+			  </view>
+			</view>
             
-            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+            <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-code"></view>
               </view>
@@ -78,7 +96,7 @@
               <view class="login__info__item__input__right-verify-code" @tap.stop="getCode">
                 <tn-button backgroundColor="#01BEFF" fontColor="#FFFFFF" size="sm" padding="5rpx 10rpx" width="100%" shape="round">{{ tips }}</tn-button>
               </view>
-            </view>
+            </view> -->
             
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
