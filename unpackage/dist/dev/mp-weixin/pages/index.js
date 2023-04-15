@@ -183,7 +183,7 @@ var Preferred = function Preferred() {
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var Mine = function Mine() {
-  __webpack_require__.e(/*! require.ensure | pages/mine/mine */ "pages/mine/mine").then((function () {
+  Promise.all(/*! require.ensure | pages/mine/mine */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/mine/mine")]).then((function () {
     return resolve(__webpack_require__(/*! ./mine/mine.vue */ 547));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
@@ -236,6 +236,9 @@ var _default = {
       return index === tabbar_index;
     });
     this.switchTabbar(index);
+  },
+  onShow: function onShow() {
+    // console.log(123)
   },
   methods: {
     // 切换导航

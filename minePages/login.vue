@@ -64,11 +64,11 @@
                 <view class="tn-icon-my"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册用户名" />
+                <input v-model="reguserUsername" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入注册用户名" />
               </view>
             </view>
 			
-			<view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+			<!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
 			  <view class="login__info__item__input__left-icon">
 			    <view class="tn-icon-my-fill"></view>
 			  </view>
@@ -84,7 +84,7 @@
 			  <view class="login__info__item__input__content">
 			    <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入电子邮箱" />
 			  </view>
-			</view>
+			</view> -->
             
             <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
@@ -103,7 +103,7 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
+                <input v-model="reguserPassword" :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入登录密码" />
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
                 <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
@@ -125,7 +125,9 @@
                   登 录
                 </text>
               </tn-button>
-              <tn-button v-if="currentModeIndex === 1" shape="round" backgroundColor="tn-cool-bg-color-7--reverse" padding="40rpx 0" width="100%" shadow fontBold>
+              <tn-button v-if="currentModeIndex === 1" shape="round" :disabled="loginLoading"
+			  backgroundColor="tn-cool-bg-color-7--reverse" padding="40rpx 0" width="100%" 
+			  shadow fontBold @click="reguser()">
                 <text class="tn-color-white" hover-class="tn-hover" :hover-stay-time="150">
                   注 册
                 </text>
@@ -178,7 +180,7 @@
 </template>
 
 <script>
-  import { loginAPI } from '../api/user.js'
+  import { loginAPI, reguserAPI } from '../api/user.js'
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
   import { mapActions } from 'vuex'
   
@@ -202,7 +204,13 @@
 		//登录用户账号
 		loginUsername: '',
 		//登录用户密码
-		loginPassword: ''
+		loginPassword: '',
+		//注册按钮禁用
+		reguserLoading: false,
+		//注册用户账号
+		reguserUsername: '',
+		//注册用户密码
+		reguserPassword: ''
       }
     },
     watch: {
@@ -273,6 +281,33 @@
 			  console.error(err)
 		  }
 		  this.loginLoading = false
+	  },
+	  //注册
+	  async reguser() {
+		  // this.reguserLoading = true
+		  // console.log(this.reguserUsername, this.reguserPassword)
+		  try{
+		  	const res = await reguserAPI(this.reguserUsername, this.reguserPassword)
+			console.log('res', res)
+			if(res.status === 200) {
+				if(res.data.status === 0) {
+					this.currentModeIndex = 0 //切换到登录界面
+					 this.$refs.tips.show({
+						msg: '注册成功！请登录',
+						backgroundColor: '#28c230',
+						fontColor: '#FFFFFF'
+					 })
+				} else {
+					this.$refs.tips.show({
+						msg: res.data.message,
+						backgroundColor: '#f64545',
+						fontColor: '#FFFFFF'
+					})
+				}
+			}
+		  }catch(e){
+		  	//TODO handle the exception
+		  }
 	  },
 	  ...mapActions('userAbout', {getUserInfo: 'getUserInfo'})
     }

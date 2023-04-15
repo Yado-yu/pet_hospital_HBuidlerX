@@ -276,6 +276,11 @@ var _default = {
           mask: true
         });
       }
+    },
+    //退出登录
+    quitLogin: function quitLogin() {
+      this.$store.commit('userAbout/QUIT_LOGIN');
+      this.tn('/minePages/login');
     }
   }
 };

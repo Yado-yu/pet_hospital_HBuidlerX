@@ -11208,7 +11208,7 @@ module.exports = index_cjs;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function(uni) {
 
 var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
 Object.defineProperty(exports, "__esModule", {
@@ -11221,9 +11221,8 @@ var _user = __webpack_require__(/*! ../api/user.js */ 36);
 var _default = {
   namespaced: true,
   state: {
-    userInfo: {
-      a: 1
-    }
+    userInfo: uni.getStorageSync('userInfo') || {},
+    isLogin: uni.getStorageSync('userInfo') ? true : false
   },
   actions: {
     getUserInfo: function getUserInfo(_ref, token) {
@@ -11262,12 +11261,28 @@ var _default = {
     GET_USERINFO: function GET_USERINFO(state, _ref2) {
       var data = _ref2.data;
       state.userInfo = data;
-      console.log(state);
+      state.isLogin = true;
+      uni.setStorage({
+        key: 'userInfo',
+        data: data
+      });
+      // console.log(state)
+    },
+    QUIT_LOGIN: function QUIT_LOGIN(state) {
+      state.userInfo = {};
+      state.isLogin = false;
+      uni.removeStorage({
+        key: 'userToken'
+      });
+      uni.removeStorage({
+        key: 'userInfo'
+      });
     }
   },
   getters: {}
 };
 exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 2)["default"]))
 
 /***/ }),
 
@@ -11662,7 +11677,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loginAPI = exports.getUserInfoAPI = void 0;
+exports.reguserAPI = exports.loginAPI = exports.getUserInfoAPI = void 0;
 var _request = _interopRequireDefault(__webpack_require__(/*! ../utils/request.js */ 37));
 // 导入自封装的接口方法
 
@@ -11691,7 +11706,23 @@ var getUserInfoAPI = function getUserInfoAPI(token) {
     }
   });
 };
+
+// 用户 - 注册
 exports.getUserInfoAPI = getUserInfoAPI;
+var reguserAPI = function reguserAPI(username, password) {
+  return (0, _request.default)({
+    url: '/api/reguser',
+    method: 'POST',
+    data: {
+      username: username,
+      password: password
+    },
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+  });
+};
+exports.reguserAPI = reguserAPI;
 
 /***/ }),
 

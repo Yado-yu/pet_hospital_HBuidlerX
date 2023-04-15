@@ -222,7 +222,13 @@ var _default = {
       //登录用户账号
       loginUsername: '',
       //登录用户密码
-      loginPassword: ''
+      loginPassword: '',
+      //注册按钮禁用
+      reguserLoading: false,
+      //注册用户账号
+      reguserUsername: '',
+      //注册用户密码
+      reguserPassword: ''
     };
   },
   watch: {
@@ -289,7 +295,8 @@ var _default = {
                               switch (_context.prev = _context.next) {
                                 case 0:
                                   _this2.getUserInfo(res.data.token);
-                                case 1:
+                                  _this2.tn('/pages/index');
+                                case 2:
                                 case "end":
                                   return _context.stop();
                               }
@@ -307,7 +314,6 @@ var _default = {
                     // backgroundColor: '#28c230',
                     // fontColor: '#FFFFFF'
                     //  })
-                    //  this.tn('/pages/index')
                   } else {
                     _this2.$refs.tips.show({
                       msg: '账号或密码错误',
@@ -330,6 +336,50 @@ var _default = {
             }
           }
         }, _callee2, null, [[1, 8]]);
+      }))();
+    },
+    //注册
+    reguser: function reguser() {
+      var _this3 = this;
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+        var res;
+        return _regenerator.default.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return (0, _user.reguserAPI)(_this3.reguserUsername, _this3.reguserPassword);
+              case 3:
+                res = _context3.sent;
+                console.log('res', res);
+                if (res.status === 200) {
+                  if (res.data.status === 0) {
+                    _this3.currentModeIndex = 0; //切换到登录界面
+                    _this3.$refs.tips.show({
+                      msg: '注册成功！请登录',
+                      backgroundColor: '#28c230',
+                      fontColor: '#FFFFFF'
+                    });
+                  } else {
+                    _this3.$refs.tips.show({
+                      msg: res.data.message,
+                      backgroundColor: '#f64545',
+                      fontColor: '#FFFFFF'
+                    });
+                  }
+                }
+                _context3.next = 10;
+                break;
+              case 8:
+                _context3.prev = 8;
+                _context3.t0 = _context3["catch"](0);
+              case 10:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3, null, [[0, 8]]);
       }))();
     }
   }, (0, _vuex.mapActions)('userAbout', {
