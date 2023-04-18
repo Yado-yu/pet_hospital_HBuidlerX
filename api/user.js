@@ -40,3 +40,19 @@ export const reguserAPI = ( username, password ) => {
 	}
   })
 }
+
+//用户 - 修改用户昵称
+export const updateUserInfoAPI = ( token, id, nickname ) => {
+  return request({
+    url: '/my/userinfo',
+	method: 'POST',
+	data: {
+	  id,
+	  nickname
+	},
+	headers: {
+	  'Authorization': token,
+	  'content-type': 'application/x-www-form-urlencoded'
+	}
+  })
+}

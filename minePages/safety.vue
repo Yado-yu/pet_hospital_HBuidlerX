@@ -20,7 +20,7 @@
           修改昵称、密码
         </view>
         <view class="tn-margin tn-color-grey--disabled tn-text-lg">
-          你是不是傻，菜的一撇的北北
+          战无不胜的毛泽东思想万岁
         </view>
         
         <!-- 切换 -->
@@ -43,7 +43,7 @@
                 <view class="tn-icon-my"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入新昵称" />
+                <input v-model="newNickname" maxlength="20" placeholder-class="input-placeholder" placeholder="请输入新昵称" />
               </view>
             </view>
 
@@ -95,7 +95,10 @@
             </view>
           </block>
           
-          <view class="login__info__item__button tn-bg-blue tn-color-white" hover-class="tn-hover" :hover-stay-time="150">{{ currentModeIndex === 0 ? '修改昵称' : '修改密码'}}</view>
+          <view class="login__info__item__button tn-bg-blue tn-color-white" 
+		  hover-class="tn-hover" :hover-stay-time="150" @click="updataInfo">
+		  {{ currentModeIndex === 0 ? '修改昵称' : '修改密码'}}
+		  </view>
           
           
         </view>
@@ -116,11 +119,16 @@
       :seconds="60"
       @change="codeChange">
     </tn-verification-code>
+	
+	<tn-tips ref="tips" position="top"></tn-tips>
   </view>
 </template>
 
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import { updateUserInfoAPI } from '@/api/user.js'
+  import { mapActions } from 'vuex'
+  
   export default {
     name: 'TemplateSafety',
     mixins: [template_page_mixin],
@@ -135,7 +143,9 @@
         // 是否显示密码
         showPassword: false,
         // 倒计时提示文字
-        tips: '获取验证码'
+        tips: '获取验证码',
+		//用户新的昵称
+		newNickname: ''
       }
     },
     watch: {
@@ -167,7 +177,47 @@
       // 获取验证码倒计时被修改
       codeChange(event) {
         this.tips = event
-      }
+      },
+	  // 更新用户信息
+	  async updataInfo() {
+		  //获取用户id
+		  const { id } = uni.getStorageSync('userInfo')
+		  const token = uni.getStorageSync('userToken')
+		  // 更新昵称
+		  if(this.currentModeIndex === 0) {
+			  try{
+			  	const res = await updateUserInfoAPI(token, id, this.newNickname)
+			  	if(res.status === 200) {
+					if(res.data.status === 0) {
+						this.getUserInfo(token) // 更新用户信息
+						this.$refs.tips.show({
+						  msg: '修改昵称成功！',
+						  backgroundColor: '#28c230',
+						  fontColor: '#FFFFFF',
+						  duration: 1500
+						})
+						setTimeout(() => {
+							uni.navigateTo({
+								url: '/pages/index',
+							})
+						}, 1500)
+					} else {
+						this.$refs.tips.show({
+						  msg: res.data.message,
+						  backgroundColor: '#f64545',
+						  fontColor: '#FFFFFF'
+						})
+					}
+			  	}
+			  }catch(e){
+			  	//TODO handle the exception
+			  }
+			  console.log('更新昵称')
+		  } else {// 更新密码
+			  console.log('更新密码')
+		  }
+	  },
+	  ...mapActions('userAbout', {getUserInfo: 'getUserInfo'})
     }
   }
 </script>
