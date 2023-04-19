@@ -56,3 +56,20 @@ export const updateUserInfoAPI = ( token, id, nickname ) => {
 	}
   })
 }
+
+//用户 - 修改用户密码
+export const updatePasswordAPI = ( token, id, oldPwd, newPwd ) => {
+  return request({
+    url: '/my/updatepwd',
+	method: 'POST',
+	data: {
+	  id,
+	  oldPwd,
+	  newPwd
+	},
+	headers: {
+	  'Authorization': token,
+	  'content-type': 'application/x-www-form-urlencoded'
+	}
+  })
+}

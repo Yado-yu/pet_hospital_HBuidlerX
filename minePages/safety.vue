@@ -50,16 +50,16 @@
           </block>
           <!-- 密码 -->
           <block v-if="currentModeIndex === 1">
-            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+            <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-phone"></view>
               </view>
               <view class="login__info__item__input__content">
                 <input maxlength="20" placeholder-class="input-placeholder" placeholder="请输入手机号码" />
               </view>
-            </view>
+            </view> -->
             
-            <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
+            <!-- <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-safe"></view>
               </view>
@@ -69,14 +69,14 @@
               <view class="login__info__item__input__right-verify-code" @tap.stop="getCode">
                 <tn-button backgroundColor="#01BEFF" fontColor="#FFFFFF" size="sm" padding="5rpx 10rpx" width="100%" shape="round">{{ tips }}</tn-button>
               </view>
-            </view>
+            </view> -->
             
             <view class="login__info__item__input tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-left">
               <view class="login__info__item__input__left-icon">
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入新密码" />
+                <input v-model="oldPwd" :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入旧密码" />
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
                 <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
@@ -87,7 +87,7 @@
                 <view class="tn-icon-lock"></view>
               </view>
               <view class="login__info__item__input__content">
-                <input :password="!showPassword" placeholder-class="input-placeholder" placeholder="请再次输入新密码" />
+                <input v-model="newPwd" :password="!showPassword" placeholder-class="input-placeholder" placeholder="请输入新密码" />
               </view>
               <view class="login__info__item__input__right-icon" @click="showPassword = !showPassword">
                 <view :class="[showPassword ? 'tn-icon-eye' : 'tn-icon-eye-hide']"></view>
@@ -126,7 +126,7 @@
 
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-  import { updateUserInfoAPI } from '@/api/user.js'
+  import { updateUserInfoAPI, updatePasswordAPI } from '@/api/user.js'
   import { mapActions } from 'vuex'
   
   export default {
@@ -144,8 +144,10 @@
         showPassword: false,
         // 倒计时提示文字
         tips: '获取验证码',
-		//用户新的昵称
-		newNickname: ''
+		// 用户新的昵称
+		newNickname: '',
+		oldPwd: '',
+		newPwd: ''
       }
     },
     watch: {
@@ -214,6 +216,32 @@
 			  }
 			  console.log('更新昵称')
 		  } else {// 更新密码
+			  try{
+				const res = await updatePasswordAPI(token, id, this.oldPwd, this.newPwd)
+				if(res.status === 200) {
+					if(res.data.status === 0) {
+						this.$refs.tips.show({
+						  msg: res.data.message,
+						  backgroundColor: '#28c230',
+						  fontColor: '#FFFFFF',
+						  duration: 1500
+						})
+						setTimeout(() => {
+							uni.navigateTo({
+								url: '/pages/index',
+							})
+						}, 1500)
+					}else {
+						this.$refs.tips.show({
+						  msg: res.data.message,
+						  backgroundColor: '#f64545',
+						  fontColor: '#FFFFFF'
+						})
+					}
+				}
+			  }catch(e){
+			  	//TODO handle the exception
+			  }
 			  console.log('更新密码')
 		  }
 	  },
