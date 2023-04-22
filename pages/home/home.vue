@@ -155,7 +155,7 @@
     
     <view class="tn-flex tn-flex-row-between tn-margin-top" @click="tn('/circlePages/business')">
       <view class="justify-content-item tn-margin tn-text-bold tn-text-xxl">
-        快速赵医生
+        快速找医生
       </view>
       <view class="justify-content-item tn-margin tn-text-lg tn-color-grey">
         <text class="tn-padding-xs">全部</text>
@@ -165,22 +165,22 @@
     
     <swiper class="card-swiper2 tn-margin-top-sm" :circular="true"
       :autoplay="false" duration="500" interval="5000" @change="resume"> 
-      <swiper-item v-for="(item,index) in resumeList" :key="index" :class="cardCur2==index?'cur':''" @click="tn('/circlePages/king')">
+      <swiper-item v-for="(item,index) in doctorList" :key="index" :class="cardCur2==index?'cur':''" @click="tn('/circlePages/king')">
         <!-- <view class="swiper-item image-banner">
           <image :src="item.url" mode="aspectFill" v-if="item.type=='image'"></image>
         </view> -->
-        <view class="swiper-item1 image-banner tn-shadow-blur" :style="'background-image:url('+ item.url + ');width: 660rpx;height: 100%;background-size: cover;border-radius: 15rpx;'">
+        <view class="swiper-item1 image-banner tn-shadow-blur" :style="'background-image:url('+ item.bgImg + ');width: 660rpx;height: 100%;background-size: cover;border-radius: 15rpx;'">
         </view>
-        <view class="swiper-item2 image-banner tn-shadow-blur" :style="'background-image:url('+ item.avatar +');width: 120rpx;height: 120rpx;background-size: cover;'">
+        <view class="swiper-item2 image-banner tn-shadow-blur" :style="'background-image:url('+ item.doctor_pic +');width: 120rpx;height: 120rpx;background-size: cover;'">
         </view> 
         <view class="swiper-item-text tn-text-shadow-indigo">
-          <view class="tn-text-bold tn-color-blue--dark" style="font-size: 45rpx;">{{item.title}}</view>
-          <view class="tn-color-blue--dark tn-padding-top-sm">{{item.name}}</view>
+          <view class="tn-text-bold tn-color-blue--dark" style="font-size: 45rpx;">{{item.doctor_name}}</view>
+          <view class="tn-color-blue--dark tn-padding-top-sm">{{item.jobTitle}}</view>
           <view class="tn-flex tn-padding-top-xl" style="margin-left: -50rpx;">
             <view class="tn-flex-1 tn-padding-sm tn-margin-right">
               <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
                 <view class="">
-                  <view class="tn-text-xxl tn-color-blue">{{item.hot}}</view>
+                  <view class="tn-text-xxl tn-color-blue">{{item.askNum}}</view>
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-fire"></text>
@@ -191,7 +191,7 @@
             <view class="tn-flex-1 tn-padding-sm tn-margin-left tn-margin-right">
               <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
                 <view class="">
-                  <view class="tn-text-xxl tn-color-orange">{{item.share}}</view>
+                  <view class="tn-text-xxl tn-color-orange">{{item.chuFang}}</view>
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-share-circle"></text>
@@ -202,7 +202,7 @@
             <view class="tn-flex-1 tn-padding-sm tn-margin-left">
               <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
                 <view class="">
-                  <view class="tn-text-xxl tn-color-red">{{item.love}}</view>
+                  <view class="tn-text-xxl tn-color-red">{{item.fans}}</view>
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-like"></text>
@@ -299,6 +299,8 @@
 </template>
 
 <script>
+  import { mapActions, mapState } from 'vuex'
+	
   export default {
     name: 'Index',
     data(){
@@ -316,7 +318,7 @@
           id: 1,
           type: 'image',
           title: '合作勾搭',
-          name: '作者微信 tnkewo',
+          name: '作者微信 YadoOike',
           text: '',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno3.jpg',
         }, {
@@ -348,59 +350,7 @@
           text: '',
           url: 'https://tnuiimage.tnkjapp.com/swiper/ad1.jpg',
         }],
-        cardCur2: 0,
-        resumeList: [{
-          id: 0,
-          type: 'image',
-          title: '徐圆圆',
-          name: 'UI设计师',
-          hot: '1.29W',
-          share: '216',
-          love: '962',
-          avatar: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-          url: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg',
-        }, {
-          id: 1,
-          type: 'image',
-          title: '图鸟北北',
-          name: 'UI设计师',
-          hot: '964',
-          share: '94',
-          love: '186',
-          avatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-          url: 'https://tnuiimage.tnkjapp.com/resume/resume-bg2.jpg',
-        }, {
-          id: 2,
-          type: 'image',
-          title: '图鸟西西',
-          name: '高级前端',
-          hot: '3.26K',
-          share: '146',
-          love: '379',
-          avatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-          url: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg',
-        }, {
-          id: 3,
-          type: 'image',
-          title: '图鸟南南',
-          name: '项目经理',
-          hot: '6.32K',
-          share: '133',
-          love: '432',
-          avatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-          url: 'https://tnuiimage.tnkjapp.com/resume/resume-bg2.jpg',
-        }, {
-          id: 4,
-          type: 'image',
-          title: '图鸟猪猪',
-          name: '纯打杂',
-          hot: '8.65K',
-          share: '321',
-          love: '886',
-          avatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-          url: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg',
-        }],
-
+        cardCur2: 0,     
         tuniaoData: [
           {
             title: 'UI设计',
@@ -426,17 +376,22 @@
             color: '#5177EE',
             value: '前往咨询'
           }
-        ],
+        ]
       }
     },
-    created() {
+    async created() {
       const systemInfo = uni.getSystemInfoSync()
       if (systemInfo.system.toLocaleLowerCase().includes('ios')) {
         this.isAndroid = false
       } else {
         this.isAndroid = true
       }
+	  // 获取医生列表
+	  await this.getDoctorList()
     },
+	computed: {
+		...mapState('doctorAbout', ['doctorList'])
+	},
     methods: {
       // cardSwiper
       cardSwiper(e) {
@@ -452,6 +407,7 @@
       		url: e,
       	});
       },
+	  ...mapActions('doctorAbout', {getDoctorList: 'getDoctorList'})
     }
   }
 </script>
