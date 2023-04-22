@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import userAbout from './user.js'
+import doctorAbout from './doctor.js'
 
 Vue.use(Vuex)
 
@@ -73,6 +74,7 @@ const store = new Vuex.Store({
   },
   modules: {
 	  userAbout,
+	  doctorAbout
   }
 })
 

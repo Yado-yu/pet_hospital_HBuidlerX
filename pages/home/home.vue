@@ -155,7 +155,7 @@
     
     <view class="tn-flex tn-flex-row-between tn-margin-top" @click="tn('/circlePages/business')">
       <view class="justify-content-item tn-margin tn-text-bold tn-text-xxl">
-        推荐名片
+        快速赵医生
       </view>
       <view class="justify-content-item tn-margin tn-text-lg tn-color-grey">
         <text class="tn-padding-xs">全部</text>
@@ -184,7 +184,7 @@
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-fire"></text>
-                  <text class="tn-padding-left-xs">人气</text>
+                  <text class="tn-padding-left-xs">问诊数</text>
                 </view>
               </view>
             </view>
@@ -195,7 +195,7 @@
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-share-circle"></text>
-                  <text class="tn-padding-left-xs">分享</text>
+                  <text class="tn-padding-left-xs">处方数</text>
                 </view>
               </view>
             </view>
@@ -206,7 +206,7 @@
                 </view>
                 <view class="tn-margin-top-xs tn-color-grey tn-text-df tn-text-center">
                   <text class="tn-icon-like"></text>
-                  <text class="tn-padding-left-xs">爱心</text>
+                  <text class="tn-padding-left-xs">粉丝数</text>
                 </view>
               </view>
             </view>
