@@ -100,23 +100,23 @@
       
       <!-- 方式12 start-->
       <view class="tn-flex">
-        <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 15rpx 0 0;padding: 30rpx 0;" @click="navTuniaoWebsite">
+        <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 15rpx 0 0;padding: 30rpx 0;">
           <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
             <view class="icon20__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-bg-orangered tn-color-white">
-              <view class="tn-icon-computer-fill"></view>
+              <view class="tn-icon-zodiac-shu"></view>
             </view>  
             <view class="tn-text-center" style="font-size: 30rpx;">
-              <view class="tn-text-ellipsis">图鸟官网</view>
+              <view class="tn-text-ellipsis">我的宠物</view>
             </view>
           </view>
         </view>
-        <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 0 0 15rpx;padding: 30rpx 0;" @click="navTuniaoUI">
+        <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 0 0 15rpx;padding: 30rpx 0;">
           <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
             <view class="icon20__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-bg-purplered tn-color-white">
-              <view class="tn-icon-moon-fill"></view>
+              <view class="tn-icon-add"></view>
             </view>  
             <view class="tn-text-center" style="font-size: 30rpx;">
-              <view class="tn-text-ellipsis">图鸟UI</view>
+              <view class="tn-text-ellipsis">添加宠物</view>
             </view>
           </view>
         </view>
