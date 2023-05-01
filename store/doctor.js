@@ -23,7 +23,7 @@ export default {
 	mutations: {
 		GET_DOCTOR_LIST(state, { data }) {
 			// 给每个医生对象加上一个背景图片属并且处理label属性
-			state.doctorList = data.map(doctor => {
+			state.doctorList = data.map((doctor, index) => {
 				// 处理label属性
 				const labelArray = doctor.label.split(',')
 				const colors = ['red', 'cyan', 'blue', 'green', 'orange', 'purplered', 'purple', 'brown', 'yellowgreen', 'lime', 'grey']
@@ -34,9 +34,10 @@ export default {
 				  }
 				})
 				// 加上背景图片
-				return {...doctor, bgImg: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg'}
+				return {...doctor, color: colors[index % colors.length],
+						bgImg: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg'}
 			})
-			// console.log(state.doctorList)
+			console.log(state.doctorList)
 		},
 		SET_CURRENT_DOCTOR(state, id) {
 			state.currentDoctor = state.doctorList.find(doctor => doctor.doctor_id === id)

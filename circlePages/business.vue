@@ -43,7 +43,7 @@
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/1.jpg);background-size:100% 100%;">
                 </view>
                 <view class="tn-color-black tn-text-center">
-                  <text class="tn-text-ellipsis">求职招聘</text>
+                  <text class="tn-text-ellipsis">免费问诊</text>
                 </view>
               </view>
             </view>
@@ -52,7 +52,7 @@
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/2.jpg);background-size:100% 100%;">
                 </view>
                 <view class="tn-color-black tn-text-center">
-                  <text class="tn-text-ellipsis">考研学习</text>
+                  <text class="tn-text-ellipsis">社区</text>
                 </view>
               </view>
             </view>
@@ -61,7 +61,7 @@
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/3.jpg);background-size:100% 100%;">
                 </view>
                 <view class="tn-color-black tn-text-center">
-                  <text class="tn-text-ellipsis">名片王者</text>
+                  <text class="tn-text-ellipsis">保险</text>
                 </view>
               </view>
             </view>
@@ -70,7 +70,7 @@
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/4.jpg);background-size:100% 100%;">
                 </view>
                 <view class="tn-color-black tn-text-center">
-                  <text class="tn-text-ellipsis">扫名片码</text>
+                  <text class="tn-text-ellipsis">问诊案例</text>
                 </view>
               </view>
             </view>
@@ -80,17 +80,17 @@
           
     <view class='nav-list tn-margin-bottom tn-margin-top'>
       
-      <block v-for="(item, index) in list1" :key="index">
+      <block v-for="(item, index) in doctorList" :key="index">
         <view class="nav-list-item tn-shadow-blur tn-cool-bg-image" :class="['tn-main-gradient-' + item.color + '--light']">
           <view class="nav-link">
-            <view class='title tn-text-bold' style="color: #080808;">{{ item.title }}</view>
-            <view class='join tn-color-grey tn-text-sm clamp-text-2'>{{ item.content }}</view>
+            <view class='title tn-text-bold' style="color: #080808;">{{ item.doctor_name }}</view>
+            <view class='join tn-color-grey tn-text-sm clamp-text-2'>{{ item.jobTitle }}</view>
           </view>
           <view class="icon tn-shadow-blur" :class="['tn-bg-' + item.color]" style="opacity: 0.5;">
             <!-- <view class="" :class="['tn-icon-' + item.icon]"></view> -->
           </view>
           <view class="icon17__item--icon icon tn-flex tn-flex-row-center tn-flex-col-center"
-          :style="'background-image:url('+ item.url + ');background-size:100% 100%;'">
+          :style="'background-image:url('+ item.doctor_pic + ');background-size:100% 100%;'">
           </view>
         </view>
       </block>
@@ -126,157 +126,38 @@
 
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import { mapState } from 'vuex'
   export default {
     name: 'TemplateBusiness',
     mixins: [template_page_mixin],
     data(){
       return {
         cardCur: 0,
-        swiperList: [{
-          id: 0,
-          type: 'image',
-          title: '海量分享',
-          name: '总有你想不到的创意',
-          text: '用最少的代码做最骚的效果',
-          url: 'https://tnuiimage.tnkjapp.com/swiper/adno4.jpg',
-        }, {
+        swiperList: [
+		{
           id: 1,
           type: 'image',
-          title: '愉快玩耍',
-          name: '寻找一起成长的小伙伴',
-          text: '欢迎加入东东们',
+          title: '宠物医院',
+          name: '让宠物健康快乐成长',
+          text: '健康、快乐',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno2.jpg',
         }, {
           id: 2,
           type: 'image',
-          title: '酷炫多彩',
-          name: '更多彩蛋等你探索',
-          text: '开启全新的探索之旅',
+          title: '专业医生',
+          name: '解决各种宠物疑难杂症',
+          text: '专业、负责',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno5.jpg',
         }, {
           id: 3,
           type: 'image',
-          title: '悄悄开源',
-          name: '商业合作请联系作者',
-          text: '微信号 tnkewo',
+          title: '适配多端',
+          name: '一套代码全部搞定',
+          text: '小程序、IOS、安卓',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno3.jpg',
-        }],
-        
-        list1: [
-          {
-            icon: 'honor-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            color: 'purple'
-          },
-          {
-            icon: 'count-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-            color: 'purplered'
-          },
-          {
-            icon: 'gloves-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-            color: 'bluepurple'
-          },
-          {
-            icon: 'trusty-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-            color: 'red'
-          },
-          {
-            icon: 'hardware-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-            color: 'aquablue'
-          },
-          {
-            icon: 'baby-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-            color: 'orangered'
-          },
-          {
-            icon: 'safe-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            color: 'blue'
-          },
-          {
-            icon: 'flag-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-            color: 'orange'
-          },
-          {
-            icon: 'topics-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-            color: 'indigo'
-          },
-          {
-            icon: 'light-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-            color: 'orangeyellow'
-          },
-          {
-            icon: 'hardware-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-            color: 'cyan'
-          },
-          {
-            icon: 'baby-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-            color: 'yellow'
-          },
-          {
-            icon: 'safe-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            color: 'teal'
-          },
-          {
-            icon: 'flag-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-            color: 'lime'
-          },
-          {
-            icon: 'topics-fill',
-            title: '蔡北北',
-            content: '菜的一撇的北北，前端是真的菜吖',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-            color: 'green'
-          },
-          {
-            icon: 'light-fill',
-            title: '蔡北北',
-            content: '会员大佬催着上线了，懒得造文案了',
-            url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-            color: 'yellowgreen'
-          }
-        ],
-        
+        },
+		],
+                
         /* 重力*/
         acceleronmeterX: 0,
         acceleronmeterY: 0,
@@ -296,6 +177,9 @@
     onUnload() {
       this.stopAccelerometer()
     },
+	computed: {
+		...mapState('doctorAbout', ['doctorList'])
+	},
     methods: {
       // cardSwiper
       cardSwiper(e) {

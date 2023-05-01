@@ -12,10 +12,11 @@
           <!-- <view class="tn-icon-left"></view> -->
         </view>
         <!-- 搜索框 -->
-        <view class="custom-nav__search tn-flex tn-flex-col-center tn-flex-row-center" @click="tn('/homePages/search')">
+        <!-- <view class="custom-nav__search tn-flex tn-flex-col-center tn-flex-row-center" @click="tn('/homePages/search')"> -->
+        <view class="custom-nav__search tn-flex tn-flex-col-center tn-flex-row-center">
           <view class="custom-nav__search__box tn-flex tn-flex-col-center tn-flex-row-left" style="background-color: rgba(230,230,230,0.3);">
             <view class="custom-nav__search__icon tn-icon-search tn-color-white"></view>
-            <view class="custom-nav__search__text tn-padding-left-xs tn-color-white">搜索 图鸟模板</view>
+            <view class="custom-nav__search__text tn-padding-left-xs tn-color-white">搜索</view>
           </view>
         </view>
       </view>
@@ -221,8 +222,8 @@
     </view> -->
     
     
-    <view class="">
-      <view class="tn-flex tn-flex-row-between" @click="tn('/activityPages/project')">
+    <!-- <view class=""> -->
+      <!-- <view class="tn-flex tn-flex-row-between" @click="tn('/activityPages/project')">
         <view class="justify-content-item tn-margin tn-text-bold tn-text-xxl">
           热门项目
         </view>
@@ -230,9 +231,9 @@
           <text class="tn-padding-xs">全部</text>
           <text class="tn-icon-topics"></text>
         </view>
-      </view>
+      </view> -->
       
-      <view class="tn-flex tn-margin-left tn-margin-right tn-margin-top-sm" @click="tn('/circlePages/news')">
+      <!-- <view class="tn-flex tn-margin-left tn-margin-right tn-margin-top-sm" @click="tn('/circlePages/news')">
         <view class="tn-flex-2">
           <view class="image-pic tn-margin-right tn-shadow-blur" style="background-image:url('https://tnuiimage.tnkjapp.com/content/rodion.jpg')">
             <view class="image-tuniao1">
@@ -249,10 +250,10 @@
             </view>
           </view> 
         </view>
-      </view>
+      </view> -->
       
       
-      <view class="tn-flex tn-flex-row-between tn-margin-top">
+      <!-- <view class="tn-flex tn-flex-row-between tn-margin-top">
         <view class="justify-content-item tn-margin tn-text-bold tn-text-xxl">
           业务范围
         </view>
@@ -260,15 +261,15 @@
           <text class="tn-padding-xs">全部</text>
           <text class="tn-icon-topics"></text>
         </view>
-      </view>
+      </view> -->
       
-      <view class="tn-info__container tn-flex tn-flex-wrap tn-flex-col-center tn-flex-row-between tn-margin-left tn-margin-right">
+      <!-- <view class="tn-info__container tn-flex tn-flex-wrap tn-flex-col-center tn-flex-row-between tn-margin-left tn-margin-right">
         <block v-for="(item, index) in tuniaoData" :key="index">
           <view class="tn-info__item tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between tn-color-white tn-shadow-blur" :style="'background-color:'+ item.color +';'" @click="tn('/homePages/profession')">
             <view class="tn-info__item__left tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
-              <!-- <view class="tn-info__item__left--icon tn-flex tn-flex-col-center tn-flex-row-center" :class="[`tn-bg-${item.color}--light tn-color-${item.color}`]">
+              <view class="tn-info__item__left--icon tn-flex tn-flex-col-center tn-flex-row-center" :class="[`tn-bg-${item.color}--light tn-color-${item.color}`]">
                 <view :class="[`tn-icon-${item.icon}`]"></view>
-              </view> -->
+              </view>
               <view class="tn-info__item__left__content">
                 <view class="tn-info__item__left__content--title tn-text-bold" style="font-size: 38rpx;">{{ item.title }}</view>
                 <view class="tn-info__item__left__content--data tn-padding-top-xs">
@@ -289,9 +290,9 @@
             </view>
           </view>
         </block>
-      </view>
+      </view> -->
       
-    </view>
+    <!-- </view> -->
 
     <view class='tn-tabbar-height'></view>
     

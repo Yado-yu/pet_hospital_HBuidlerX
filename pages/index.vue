@@ -64,7 +64,7 @@
             inactiveIcon: '/static/tabbar/home_tn.png'
           },
           {
-            title: '圈子',
+            title: '问诊',
             activeIcon: '/static/tabbar/circle_tnnew.png',
             inactiveIcon: '/static/tabbar/circle_tn.png'
           },
