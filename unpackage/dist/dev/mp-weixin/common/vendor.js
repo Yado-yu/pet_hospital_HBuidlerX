@@ -59,6 +59,200 @@ module.exports = _nonIterableRest, module.exports.__esModule = true, module.expo
 /***/ }),
 
 /***/ 100:
+/*!************************************************************************************!*\
+  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/number.js ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+/**
+ * 格式化数字字符串
+ * @param {String, Number} value 待格式化的字符串
+ * @param {Number} digits 保留位数 
+ */
+function formatNumberString(value) {
+  var digits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  var number = 0;
+  // 判断是什么类型
+  if (typeof value === 'string') {
+    number = Number(value);
+  } else if (typeof value === 'number') {
+    number = value;
+  }
+  if (isNaN(number) || number === 0) {
+    return 0;
+  }
+  var maxNumber = Math.pow(10, digits) - 1;
+  if (number > maxNumber) {
+    return "".concat(maxNumber, "+");
+  }
+  return number;
+}
+
+/**
+ * 格式化数字字符串，往数字前添加0
+ * 
+ * @param {Object} num 待格式化的数值
+ */
+function formatNumberAddZero(value) {
+  var number = 0;
+  // 判断是什么类型
+  if (typeof value === 'string') {
+    number = Number(value);
+  } else if (typeof value === 'number') {
+    number = value;
+  }
+  if (isNaN(number) || +number < 10) {
+    return '0' + number;
+  } else {
+    return String(number);
+  }
+}
+
+/**
+ * 格式化数字，往数值后添加单位
+ *
+ * @param {Object} value 待格式化的数值
+ * @param {Object} digits 保留位数
+ */
+function formatNumberAddPriceUnit(value) {
+  var digits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+  // 数值分割点
+  var unitSplit = [{
+    value: 1,
+    symbol: ''
+  }, {
+    value: 1E3,
+    symbol: 'K'
+  }, {
+    value: 1E4,
+    symbol: 'W'
+  }];
+  var reg = /\.0+$|(\.[0=9]*[1-9])0+$/;
+  var number = 0;
+  // 判断是什么类型
+  if (typeof value === 'string') {
+    number = Number(value);
+  } else if (typeof value === 'number') {
+    number = value;
+  }
+  var i;
+  for (i = unitSplit.length - 1; i > 0; i--) {
+    if (number >= unitSplit[i].value) break;
+  }
+  return (number / unitSplit[i].value).toFixed(digits).replace(reg, "$1") + unitSplit[i].symbol;
+}
+
+/**
+ * 获取数值的整数位数
+ *
+ * @param {Object} number 数值 
+ */
+function getDigit(number) {
+  var digit = -1;
+  while (number >= 1) {
+    digit++;
+    number = number / 10;
+  }
+  return digit;
+}
+
+/**
+ * 获取指定范围的随机数(返回整数)
+ 
+ * @param {Object} min 最小值
+ * @param {Object} max 最大值
+ */
+function random(min, max) {
+  if (min >= 0 && max > 0 && max >= min) {
+    var gab = max - min;
+    return Math.random() * gab + min;
+  } else {
+    return 0;
+  }
+}
+
+/**
+ * 获取指定范围的随机数(返回整数)
+ 
+ * @param {Object} min 最小值
+ * @param {Object} max 最大值
+ */
+function randomInt(min, max) {
+  if (min >= 0 && max > 0 && max >= min) {
+    var gab = max - min + 1;
+    return Math.floor(Math.random() * gab + min);
+  } else {
+    return 0;
+  }
+}
+var _default = {
+  formatNumberString: formatNumberString,
+  formatNumberAddZero: formatNumberAddZero,
+  formatNumberAddPriceUnit: formatNumberAddPriceUnit,
+  random: random,
+  randomInt: randomInt
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 101:
+/*!***************************************************************************************!*\
+  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/deepClone.js ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
+/**
+ * 判断是否为数组
+ * 
+ * @param {Object} arr
+ */
+function isArray(arr) {
+  return Object.prototype.toString.call(arr) === '[object Array]';
+}
+
+/**
+ * 深度复制数据
+ * 
+ * @param {Object} obj
+ */
+function deepClone(obj) {
+  if ([null, undefined, NaN, false].includes(obj)) return obj;
+  if ((0, _typeof2.default)(obj) !== 'object' && typeof obj !== 'function') {
+    return obj;
+  }
+  var o = isArray(obj) ? [] : {};
+  for (var i in obj) {
+    if (obj.hasOwnProperty(i)) {
+      o[i] = (0, _typeof2.default)(obj[i]) === 'object' ? deepClone(obj[i]) : obj[i];
+    }
+  }
+  return o;
+}
+var _default = deepClone;
+exports.default = _default;
+
+/***/ }),
+
+/***/ 102:
 /*!**********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/config/zIndex.js ***!
   \**********************************************************************************/
@@ -93,7 +287,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 101:
+/***/ 103:
 /*!*********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/config/color.js ***!
   \*********************************************************************************/
@@ -126,7 +320,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 102:
+/***/ 104:
 /*!********************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/store/$t.mixin.js ***!
   \********************************************************************/
@@ -166,7 +360,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 103:
+/***/ 105:
 /*!**********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/mixin/mpShare.js ***!
   \**********************************************************************************/
@@ -231,7 +425,7 @@ module.exports = _defineProperty, module.exports.__esModule = true, module.expor
 
 /***/ }),
 
-/***/ 116:
+/***/ 118:
 /*!************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/libs/mixin/template_page_mixin.js ***!
   \************************************************************************************/
@@ -382,7 +576,7 @@ module.exports = _toPrimitive, module.exports.__esModule = true, module.exports[
 
 /***/ }),
 
-/***/ 141:
+/***/ 143:
 /*!********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/libs/navigation/navigation.js ***!
   \********************************************************************************/
@@ -9869,6 +10063,7 @@ exports.default = void 0;
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 25));
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 31));
 var _user = _interopRequireDefault(__webpack_require__(/*! ./user.js */ 32));
+var _doctor = _interopRequireDefault(__webpack_require__(/*! ./doctor.js */ 85));
 _vue.default.use(_vuex.default);
 var lifeData = {};
 
@@ -9934,7 +10129,8 @@ var store = new _vuex.default.Store({
   },
   actions: {},
   modules: {
-    userAbout: _user.default
+    userAbout: _user.default,
+    doctorAbout: _doctor.default
   }
 });
 var _default = store;
@@ -11677,7 +11873,7 @@ var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/inte
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.reguserAPI = exports.loginAPI = exports.getUserInfoAPI = void 0;
+exports.updateUserInfoAPI = exports.updatePasswordAPI = exports.reguserAPI = exports.loginAPI = exports.getUserInfoAPI = void 0;
 var _request = _interopRequireDefault(__webpack_require__(/*! ../utils/request.js */ 37));
 // 导入自封装的接口方法
 
@@ -11722,7 +11918,42 @@ var reguserAPI = function reguserAPI(username, password) {
     }
   });
 };
+
+//用户 - 修改用户昵称
 exports.reguserAPI = reguserAPI;
+var updateUserInfoAPI = function updateUserInfoAPI(token, id, nickname) {
+  return (0, _request.default)({
+    url: '/my/userinfo',
+    method: 'POST',
+    data: {
+      id: id,
+      nickname: nickname
+    },
+    headers: {
+      'Authorization': token,
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+  });
+};
+
+//用户 - 修改用户密码
+exports.updateUserInfoAPI = updateUserInfoAPI;
+var updatePasswordAPI = function updatePasswordAPI(token, id, oldPwd, newPwd) {
+  return (0, _request.default)({
+    url: '/my/updatepwd',
+    method: 'POST',
+    data: {
+      id: id,
+      oldPwd: oldPwd,
+      newPwd: newPwd
+    },
+    headers: {
+      'Authorization': token,
+      'content-type': 'application/x-www-form-urlencoded'
+    }
+  });
+};
+exports.updatePasswordAPI = updatePasswordAPI;
 
 /***/ }),
 
@@ -15779,7 +16010,30 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 559:
+/***/ 56:
+/*!**************************************************************************************************!*\
+  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/node_modules/axios/lib/defaults/transitional.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = {
+  silentJSONParsing: true,
+  forcedJSONParsing: true,
+  clarifyTimeoutError: false
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 561:
 /*!*******************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/mixin/components_color.js ***!
   \*******************************************************************************************/
@@ -15829,29 +16083,6 @@ module.exports = {
   },
   methods: {}
 };
-
-/***/ }),
-
-/***/ 56:
-/*!**************************************************************************************************!*\
-  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/node_modules/axios/lib/defaults/transitional.js ***!
-  \**************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _default = {
-  silentJSONParsing: true,
-  forcedJSONParsing: true,
-  clarifyTimeoutError: false
-};
-exports.default = _default;
 
 /***/ }),
 
@@ -17803,6 +18034,113 @@ exports.default = _default;
 /***/ }),
 
 /***/ 85:
+/*!******************************************************************!*\
+  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/store/doctor.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _regenerator = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/regenerator */ 33));
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
+var _asyncToGenerator2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ 35));
+var _doctor = __webpack_require__(/*! ../api/doctor.js */ 86);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+var _default = {
+  namespaced: true,
+  state: {
+    doctorList: []
+  },
+  actions: {
+    getDoctorList: function getDoctorList(_ref) {
+      return (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+        var commit, res;
+        return _regenerator.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                commit = _ref.commit;
+                _context.prev = 1;
+                _context.next = 4;
+                return (0, _doctor.getDoctorListAPI)();
+              case 4:
+                res = _context.sent;
+                if (res.status === 200) {
+                  if (res.data.status === 0) {
+                    commit('GET_DOCTOR_LIST', res.data);
+                  }
+                }
+                _context.next = 10;
+                break;
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](1);
+              case 10:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[1, 8]]);
+      }))();
+    }
+  },
+  mutations: {
+    GET_DOCTOR_LIST: function GET_DOCTOR_LIST(state, _ref2) {
+      var data = _ref2.data;
+      // 给每个医生对象加上一个背景图片属性
+      state.doctorList = data.map(function (doctor) {
+        return _objectSpread(_objectSpread({}, doctor), {}, {
+          bgImg: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg'
+        });
+      });
+      // console.log(state.doctorList)
+    }
+  },
+
+  getters: {}
+};
+exports.default = _default;
+
+/***/ }),
+
+/***/ 86:
+/*!****************************************************************!*\
+  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/api/doctor.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getDoctorListAPI = void 0;
+var _request = _interopRequireDefault(__webpack_require__(/*! ../utils/request.js */ 37));
+// 导入自封装的接口方法
+
+// 医生 - 获取所有医生信息
+var getDoctorListAPI = function getDoctorListAPI() {
+  return (0, _request.default)({
+    url: '/api/getAllDoctor',
+    method: 'GET'
+  });
+};
+exports.getDoctorListAPI = getDoctorListAPI;
+
+/***/ }),
+
+/***/ 87:
 /*!*************************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/updateCustomBarInfo.js ***!
   \*************************************************************************************************/
@@ -17846,7 +18184,25 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 88:
+/***/ 9:
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+
+/***/ }),
+
+/***/ 90:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -17978,7 +18334,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 89:
+/***/ 91:
 /*!*********************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/index.js ***!
   \*********************************************************************/
@@ -17993,19 +18349,19 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 90));
-var _updateCustomBarInfo = _interopRequireDefault(__webpack_require__(/*! ./libs/function/updateCustomBarInfo.js */ 85));
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 91));
-var _message = _interopRequireDefault(__webpack_require__(/*! ./libs/function/message.js */ 92));
-var _uuid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/uuid.js */ 93));
-var _array = _interopRequireDefault(__webpack_require__(/*! ./libs/function/array.js */ 94));
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 95));
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 96));
-var _string = _interopRequireDefault(__webpack_require__(/*! ./libs/function/string.js */ 97));
-var _number = _interopRequireDefault(__webpack_require__(/*! ./libs/function/number.js */ 98));
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 99));
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 100));
-var _color2 = _interopRequireDefault(__webpack_require__(/*! ./libs/config/color.js */ 101));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 92));
+var _updateCustomBarInfo = _interopRequireDefault(__webpack_require__(/*! ./libs/function/updateCustomBarInfo.js */ 87));
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 93));
+var _message = _interopRequireDefault(__webpack_require__(/*! ./libs/function/message.js */ 94));
+var _uuid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/uuid.js */ 95));
+var _array = _interopRequireDefault(__webpack_require__(/*! ./libs/function/array.js */ 96));
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 97));
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 98));
+var _string = _interopRequireDefault(__webpack_require__(/*! ./libs/function/string.js */ 99));
+var _number = _interopRequireDefault(__webpack_require__(/*! ./libs/function/number.js */ 100));
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 101));
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 102));
+var _color2 = _interopRequireDefault(__webpack_require__(/*! ./libs/config/color.js */ 103));
 // 引入全局mixin
 
 // 调试输出信息
@@ -18053,25 +18409,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 9:
-/*!*****************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-  return arr2;
-}
-module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
-
-/***/ }),
-
-/***/ 90:
+/***/ 92:
 /*!********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/mixin/mixin.js ***!
   \********************************************************************************/
@@ -18151,7 +18489,7 @@ module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exp
 
 /***/ }),
 
-/***/ 91:
+/***/ 93:
 /*!***********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/color.js ***!
   \***********************************************************************************/
@@ -18421,7 +18759,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 92:
+/***/ 94:
 /*!*************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/message.js ***!
   \*************************************************************************************/
@@ -18515,7 +18853,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 93:
+/***/ 95:
 /*!**********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/uuid.js ***!
   \**********************************************************************************/
@@ -18576,7 +18914,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 94:
+/***/ 96:
 /*!***********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/array.js ***!
   \***********************************************************************************/
@@ -18618,7 +18956,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 95:
+/***/ 97:
 /*!**********************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/test.js ***!
   \**********************************************************************************/
@@ -18867,7 +19205,7 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ 96:
+/***/ 98:
 /*!*************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/$parent.js ***!
   \*************************************************************************************/
@@ -18902,7 +19240,7 @@ function $parent() {
 
 /***/ }),
 
-/***/ 97:
+/***/ 99:
 /*!************************************************************************************!*\
   !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/string.js ***!
   \************************************************************************************/
@@ -18987,200 +19325,6 @@ var _default = {
   humpConvertChar: humpConvertChar,
   charConvertHump: charConvertHump
 };
-exports.default = _default;
-
-/***/ }),
-
-/***/ 98:
-/*!************************************************************************************!*\
-  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/number.js ***!
-  \************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-/**
- * 格式化数字字符串
- * @param {String, Number} value 待格式化的字符串
- * @param {Number} digits 保留位数 
- */
-function formatNumberString(value) {
-  var digits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
-  var number = 0;
-  // 判断是什么类型
-  if (typeof value === 'string') {
-    number = Number(value);
-  } else if (typeof value === 'number') {
-    number = value;
-  }
-  if (isNaN(number) || number === 0) {
-    return 0;
-  }
-  var maxNumber = Math.pow(10, digits) - 1;
-  if (number > maxNumber) {
-    return "".concat(maxNumber, "+");
-  }
-  return number;
-}
-
-/**
- * 格式化数字字符串，往数字前添加0
- * 
- * @param {Object} num 待格式化的数值
- */
-function formatNumberAddZero(value) {
-  var number = 0;
-  // 判断是什么类型
-  if (typeof value === 'string') {
-    number = Number(value);
-  } else if (typeof value === 'number') {
-    number = value;
-  }
-  if (isNaN(number) || +number < 10) {
-    return '0' + number;
-  } else {
-    return String(number);
-  }
-}
-
-/**
- * 格式化数字，往数值后添加单位
- *
- * @param {Object} value 待格式化的数值
- * @param {Object} digits 保留位数
- */
-function formatNumberAddPriceUnit(value) {
-  var digits = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
-  // 数值分割点
-  var unitSplit = [{
-    value: 1,
-    symbol: ''
-  }, {
-    value: 1E3,
-    symbol: 'K'
-  }, {
-    value: 1E4,
-    symbol: 'W'
-  }];
-  var reg = /\.0+$|(\.[0=9]*[1-9])0+$/;
-  var number = 0;
-  // 判断是什么类型
-  if (typeof value === 'string') {
-    number = Number(value);
-  } else if (typeof value === 'number') {
-    number = value;
-  }
-  var i;
-  for (i = unitSplit.length - 1; i > 0; i--) {
-    if (number >= unitSplit[i].value) break;
-  }
-  return (number / unitSplit[i].value).toFixed(digits).replace(reg, "$1") + unitSplit[i].symbol;
-}
-
-/**
- * 获取数值的整数位数
- *
- * @param {Object} number 数值 
- */
-function getDigit(number) {
-  var digit = -1;
-  while (number >= 1) {
-    digit++;
-    number = number / 10;
-  }
-  return digit;
-}
-
-/**
- * 获取指定范围的随机数(返回整数)
- 
- * @param {Object} min 最小值
- * @param {Object} max 最大值
- */
-function random(min, max) {
-  if (min >= 0 && max > 0 && max >= min) {
-    var gab = max - min;
-    return Math.random() * gab + min;
-  } else {
-    return 0;
-  }
-}
-
-/**
- * 获取指定范围的随机数(返回整数)
- 
- * @param {Object} min 最小值
- * @param {Object} max 最大值
- */
-function randomInt(min, max) {
-  if (min >= 0 && max > 0 && max >= min) {
-    var gab = max - min + 1;
-    return Math.floor(Math.random() * gab + min);
-  } else {
-    return 0;
-  }
-}
-var _default = {
-  formatNumberString: formatNumberString,
-  formatNumberAddZero: formatNumberAddZero,
-  formatNumberAddPriceUnit: formatNumberAddPriceUnit,
-  random: random,
-  randomInt: randomInt
-};
-exports.default = _default;
-
-/***/ }),
-
-/***/ 99:
-/*!***************************************************************************************!*\
-  !*** /Users/yado/Desktop/pet_hospital_HBuidlerX/tuniao-ui/libs/function/deepClone.js ***!
-  \***************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ 4);
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _typeof2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/typeof */ 13));
-/**
- * 判断是否为数组
- * 
- * @param {Object} arr
- */
-function isArray(arr) {
-  return Object.prototype.toString.call(arr) === '[object Array]';
-}
-
-/**
- * 深度复制数据
- * 
- * @param {Object} obj
- */
-function deepClone(obj) {
-  if ([null, undefined, NaN, false].includes(obj)) return obj;
-  if ((0, _typeof2.default)(obj) !== 'object' && typeof obj !== 'function') {
-    return obj;
-  }
-  var o = isArray(obj) ? [] : {};
-  for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
-      o[i] = (0, _typeof2.default)(obj[i]) === 'object' ? deepClone(obj[i]) : obj[i];
-    }
-  }
-  return o;
-}
-var _default = deepClone;
 exports.default = _default;
 
 /***/ })

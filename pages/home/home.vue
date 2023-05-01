@@ -165,7 +165,7 @@
     
     <swiper class="card-swiper2 tn-margin-top-sm" :circular="true"
       :autoplay="false" duration="500" interval="5000" @change="resume"> 
-      <swiper-item v-for="(item,index) in doctorList" :key="index" :class="cardCur2==index?'cur':''" @click="tn('/circlePages/king')">
+      <swiper-item v-for="(item,index) in doctorList" :key="index" :class="cardCur2==index?'cur':''" @click="doctorDetail(item.doctor_id)">
         <!-- <view class="swiper-item image-banner">
           <image :src="item.url" mode="aspectFill" v-if="item.type=='image'"></image>
         </view> -->
@@ -307,14 +307,24 @@
       return {
         cardCur: 0,
         isAndroid: true,
-        swiperList: [{
-          id: 0,
-          type: 'image',
-          title: '',
-          name: '',
-          text: '',
-          url: 'https://tnuiimage.tnkjapp.com/new/banner1.jpg',
-        }, {
+        swiperList: [
+		{
+		  id: 5,
+		  type: 'image',
+		  title: '',
+		  name: '',
+		  text: '',
+		  url: 'https://tnuiimage.tnkjapp.com/swiper/ad1.jpg',
+		},
+		// {
+  //         id: 0,
+  //         type: 'image',
+  //         title: '',
+  //         name: '',
+  //         text: '',
+  //         url: 'https://tnuiimage.tnkjapp.com/new/banner1.jpg',
+  //       }, 
+		{
           id: 1,
           type: 'image',
           title: '合作勾搭',
@@ -324,31 +334,26 @@
         }, {
           id: 2,
           type: 'image',
-          title: '海量分享',
-          name: '总有你想不到的创意',
+          title: '宠物医院',
+          name: '解决各种宠物疑难杂症',
           text: '',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno2.jpg',
-        }, {
-          id: 3,
-          type: 'image',
-          title: '酷炫多彩',
-          name: '更多彩蛋等你探索',
-          text: '',
-          url: 'https://tnuiimage.tnkjapp.com/swiper/adno4.jpg',
-        }, {
+        }, 
+		// {
+  //         id: 3,
+  //         type: 'image',
+  //         title: '酷炫多彩',
+  //         name: '更多彩蛋等你探索',
+  //         text: '',
+  //         url: 'https://tnuiimage.tnkjapp.com/swiper/adno4.jpg',
+  //       }, 
+		{
           id: 4,
           type: 'image',
           title: '适配多端',
           name: 'APP、微信小程序、H5、Finclip',
           text: '',
           url: 'https://tnuiimage.tnkjapp.com/swiper/adno5.jpg',
-        },{
-          id: 5,
-          type: 'image',
-          title: '',
-          name: '',
-          text: '',
-          url: 'https://tnuiimage.tnkjapp.com/swiper/ad1.jpg',
         }],
         cardCur2: 0,     
         tuniaoData: [
@@ -407,6 +412,10 @@
       		url: e,
       	});
       },
+	  doctorDetail(id) {
+		  this.$store.commit('doctorAbout/SET_CURRENT_DOCTOR', id)
+		  this.tn('/circlePages/king')
+	  },
 	  ...mapActions('doctorAbout', {getDoctorList: 'getDoctorList'})
     }
   }

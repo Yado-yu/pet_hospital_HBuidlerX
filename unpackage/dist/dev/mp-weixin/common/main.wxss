@@ -1241,6 +1241,9 @@
 .tn-icon-reduce-circle-fill:before {
   content: "\e747";
 }
+/* .tn-icon-panda:before {
+  content: "\e750";
+} */
 page {
   /* filter: grayscale(100%);
   -webkit-filter: grayscale(100%); */
