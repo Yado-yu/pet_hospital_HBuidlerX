@@ -116,7 +116,7 @@ try {
       return __webpack_require__.e(/*! import() | tuniao-ui/components/tn-avatar-group/tn-avatar-group */ "tuniao-ui/components/tn-avatar-group/tn-avatar-group").then(__webpack_require__.bind(null, /*! @/tuniao-ui/components/tn-avatar-group/tn-avatar-group.vue */ 599))
     },
     tnStackSwiper: function () {
-      return Promise.all(/*! import() | tuniao-ui/components/tn-stack-swiper/tn-stack-swiper */[__webpack_require__.e("common/vendor"), __webpack_require__.e("tuniao-ui/components/tn-stack-swiper/tn-stack-swiper")]).then(__webpack_require__.bind(null, /*! @/tuniao-ui/components/tn-stack-swiper/tn-stack-swiper.vue */ 606))
+      return __webpack_require__.e(/*! import() | tuniao-ui/components/tn-stack-swiper/tn-stack-swiper */ "tuniao-ui/components/tn-stack-swiper/tn-stack-swiper").then(__webpack_require__.bind(null, /*! @/tuniao-ui/components/tn-stack-swiper/tn-stack-swiper.vue */ 606))
     },
   }
 } catch (e) {

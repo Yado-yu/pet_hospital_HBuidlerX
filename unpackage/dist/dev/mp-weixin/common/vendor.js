@@ -18057,7 +18057,8 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 var _default = {
   namespaced: true,
   state: {
-    doctorList: []
+    doctorList: [],
+    currentDoctor: {}
   },
   actions: {
     getDoctorList: function getDoctorList(_ref) {
@@ -18095,13 +18096,30 @@ var _default = {
   mutations: {
     GET_DOCTOR_LIST: function GET_DOCTOR_LIST(state, _ref2) {
       var data = _ref2.data;
-      // 给每个医生对象加上一个背景图片属性
-      state.doctorList = data.map(function (doctor) {
+      // 给每个医生对象加上一个背景图片属并且处理label属性
+      state.doctorList = data.map(function (doctor, index) {
+        // 处理label属性
+        var labelArray = doctor.label.split(',');
+        var colors = ['red', 'cyan', 'blue', 'green', 'orange', 'purplered', 'purple', 'brown', 'yellowgreen', 'lime', 'grey'];
+        doctor.label = labelArray.map(function (item, index) {
+          return {
+            color: colors[index % colors.length],
+            title: item
+          };
+        });
+        // 加上背景图片
         return _objectSpread(_objectSpread({}, doctor), {}, {
+          color: colors[index % colors.length],
           bgImg: 'https://tnuiimage.tnkjapp.com/resume/resume-bg.jpg'
         });
       });
-      // console.log(state.doctorList)
+      console.log(state.doctorList);
+    },
+    SET_CURRENT_DOCTOR: function SET_CURRENT_DOCTOR(state, id) {
+      state.currentDoctor = state.doctorList.find(function (doctor) {
+        return doctor.doctor_id === id;
+      });
+      // console.log(state.currentDoctor)
     }
   },
 

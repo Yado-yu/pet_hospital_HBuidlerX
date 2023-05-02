@@ -111,7 +111,7 @@
           </view>
         </view>
         <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 0 0 15rpx;padding: 30rpx 0;">
-          <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
+          <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center" @click="addPet">
             <view class="icon20__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-bg-purplered tn-color-white">
               <view class="tn-icon-add"></view>
             </view>  
@@ -288,6 +288,7 @@
     </view>
 
     <view class='tn-tabbar-height'></view>
+	<tn-tips ref="tips" position="top"></tn-tips>
 
   </view>
 </template>
@@ -306,6 +307,23 @@
 		...mapState('userAbout', ['userInfo', 'isLogin'])
 	},
     methods: {
+	  // 跳转到添加宠物界面
+	  addPet() {
+		  if(this.isLogin) {
+			  console.log(123)
+			  this.tn('/minePages/addpet')
+		  } else {
+			  this.$refs.tips.show({
+				msg: '添加宠物请先登录',
+				backgroundColor: '#E83A30',
+				fontColor: '#FFFFFF',
+				duration: 1500
+			  })
+			  setTimeout(()=>{
+				  this.tn('/minePages/login')
+			  }, 1500)
+		  }
+	  },
       // 跳转到图鸟官网
       navTuniaoWebsite() {
         uni.navigateToMiniProgram({

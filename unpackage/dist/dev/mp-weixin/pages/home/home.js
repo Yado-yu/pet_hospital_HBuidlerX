@@ -267,6 +267,10 @@ var _default = {
       uni.navigateTo({
         url: e
       });
+    },
+    doctorDetail: function doctorDetail(id) {
+      this.$store.commit('doctorAbout/SET_CURRENT_DOCTOR', id);
+      this.tn('/circlePages/king');
     }
   }, (0, _vuex.mapActions)('doctorAbout', {
     getDoctorList: 'getDoctorList'

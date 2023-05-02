@@ -88,6 +88,9 @@ try {
     tnListCell: function () {
       return Promise.all(/*! import() | tuniao-ui/components/tn-list-cell/tn-list-cell */[__webpack_require__.e("common/vendor"), __webpack_require__.e("tuniao-ui/components/tn-list-cell/tn-list-cell")]).then(__webpack_require__.bind(null, /*! @/tuniao-ui/components/tn-list-cell/tn-list-cell.vue */ 678))
     },
+    tnTips: function () {
+      return __webpack_require__.e(/*! import() | tuniao-ui/components/tn-tips/tn-tips */ "tuniao-ui/components/tn-tips/tn-tips").then(__webpack_require__.bind(null, /*! @/tuniao-ui/components/tn-tips/tn-tips.vue */ 743))
+    },
   }
 } catch (e) {
   if (
@@ -163,6 +166,24 @@ var _default = {
   },
   computed: _objectSpread({}, (0, _vuex.mapState)('userAbout', ['userInfo', 'isLogin'])),
   methods: {
+    // 跳转到添加宠物界面
+    addPet: function addPet() {
+      var _this = this;
+      if (this.isLogin) {
+        console.log(123);
+        this.tn('/minePages/addpet');
+      } else {
+        this.$refs.tips.show({
+          msg: '添加宠物请先登录',
+          backgroundColor: '#E83A30',
+          fontColor: '#FFFFFF',
+          duration: 1500
+        });
+        setTimeout(function () {
+          _this.tn('/minePages/login');
+        }, 1500);
+      }
+    },
     // 跳转到图鸟官网
     navTuniaoWebsite: function navTuniaoWebsite() {
       uni.navigateToMiniProgram({

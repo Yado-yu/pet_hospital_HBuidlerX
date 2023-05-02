@@ -165,133 +165,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _defineProperty2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/defineProperty */ 11));
 var _template_page_mixin = _interopRequireDefault(__webpack_require__(/*! @/libs/mixin/template_page_mixin.js */ 118));
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+var _vuex = __webpack_require__(/*! vuex */ 31);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0, _defineProperty2.default)(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 var _default = {
   name: 'TemplateBusiness',
   mixins: [_template_page_mixin.default],
@@ -299,130 +177,26 @@ var _default = {
     return {
       cardCur: 0,
       swiperList: [{
-        id: 0,
-        type: 'image',
-        title: '海量分享',
-        name: '总有你想不到的创意',
-        text: '用最少的代码做最骚的效果',
-        url: 'https://tnuiimage.tnkjapp.com/swiper/adno4.jpg'
-      }, {
         id: 1,
         type: 'image',
-        title: '愉快玩耍',
-        name: '寻找一起成长的小伙伴',
-        text: '欢迎加入东东们',
+        title: '宠物医院',
+        name: '让宠物健康快乐成长',
+        text: '健康、快乐',
         url: 'https://tnuiimage.tnkjapp.com/swiper/adno2.jpg'
       }, {
         id: 2,
         type: 'image',
-        title: '酷炫多彩',
-        name: '更多彩蛋等你探索',
-        text: '开启全新的探索之旅',
+        title: '专业医生',
+        name: '解决各种宠物疑难杂症',
+        text: '专业、负责',
         url: 'https://tnuiimage.tnkjapp.com/swiper/adno5.jpg'
       }, {
         id: 3,
         type: 'image',
-        title: '悄悄开源',
-        name: '商业合作请联系作者',
-        text: '微信号 tnkewo',
+        title: '适配多端',
+        name: '一套代码全部搞定',
+        text: '小程序、IOS、安卓',
         url: 'https://tnuiimage.tnkjapp.com/swiper/adno3.jpg'
-      }],
-      list1: [{
-        icon: 'honor-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-        color: 'purple'
-      }, {
-        icon: 'count-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-        color: 'purplered'
-      }, {
-        icon: 'gloves-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-        color: 'bluepurple'
-      }, {
-        icon: 'trusty-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-        color: 'red'
-      }, {
-        icon: 'hardware-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-        color: 'aquablue'
-      }, {
-        icon: 'baby-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-        color: 'orangered'
-      }, {
-        icon: 'safe-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-        color: 'blue'
-      }, {
-        icon: 'flag-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-        color: 'orange'
-      }, {
-        icon: 'topics-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-        color: 'indigo'
-      }, {
-        icon: 'light-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-        color: 'orangeyellow'
-      }, {
-        icon: 'hardware-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-        color: 'cyan'
-      }, {
-        icon: 'baby-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg',
-        color: 'yellow'
-      }, {
-        icon: 'safe-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-        color: 'teal'
-      }, {
-        icon: 'flag-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg',
-        color: 'lime'
-      }, {
-        icon: 'topics-fill',
-        title: '蔡北北',
-        content: '菜的一撇的北北，前端是真的菜吖',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg',
-        color: 'green'
-      }, {
-        icon: 'light-fill',
-        title: '蔡北北',
-        content: '会员大佬催着上线了，懒得造文案了',
-        url: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg',
-        color: 'yellowgreen'
       }],
       /* 重力*/
       acceleronmeterX: 0,
@@ -458,6 +232,7 @@ var _default = {
   onUnload: function onUnload() {
     this.stopAccelerometer();
   },
+  computed: _objectSpread({}, (0, _vuex.mapState)('doctorAbout', ['doctorList'])),
   methods: {
     // cardSwiper
     cardSwiper: function cardSwiper(e) {

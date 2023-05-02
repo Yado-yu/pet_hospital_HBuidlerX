@@ -329,6 +329,13 @@
           "enablePullDownRefresh": false
         }
       },
+	  {
+	    "path": "addpet",
+	    "style": {
+	      "navigationBarTitleText": "添加宠物",
+	      "enablePullDownRefresh": false
+	    }
+	  },
       {
         "path": "message",
         "style": {

@@ -168,7 +168,7 @@ var Home = function Home() {
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
 var CirclePage = function CirclePage() {
-  __webpack_require__.e(/*! require.ensure | pages/circle/circle */ "pages/circle/circle").then((function () {
+  Promise.all(/*! require.ensure | pages/circle/circle */[__webpack_require__.e("common/vendor"), __webpack_require__.e("pages/circle/circle")]).then((function () {
     return resolve(__webpack_require__(/*! ./circle/circle.vue */ 528));
   }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 };
@@ -203,7 +203,7 @@ var _default = {
         activeIcon: '/static/tabbar/home_tnnew.png',
         inactiveIcon: '/static/tabbar/home_tn.png'
       }, {
-        title: '圈子',
+        title: '问诊',
         activeIcon: '/static/tabbar/circle_tnnew.png',
         inactiveIcon: '/static/tabbar/circle_tn.png'
       }, {
