@@ -80,17 +80,17 @@
           
     <view class='nav-list tn-margin-bottom tn-margin-top' v-if="true">
       
-      <block v-for="(item, index) in doctorList" :key="index">
-        <view class="nav-list-item tn-shadow-blur tn-cool-bg-image" :class="['tn-main-gradient-' + item.color + '--light']" @click="doctorDetail(item.doctor_id)">
+      <block v-for="(item, index) in petList" :key="index">
+        <view class="nav-list-item tn-shadow-blur tn-cool-bg-image" :class="['tn-main-gradient-' + item.color + '--light']" @click="petDetail(item.pet_id)">
           <view class="nav-link">
-            <view class='title tn-text-bold' style="color: #080808;">{{ item.doctor_name }}</view>
-            <view class='join tn-color-grey tn-text-sm clamp-text-2'>{{ item.jobTitle }}</view>
+            <view class='title tn-text-bold' style="color: #080808;">{{ item.pet_name }}</view>
+            <view class='join tn-color-grey tn-text-sm clamp-text-2'>{{ item.species }}</view>
           </view>
           <view class="icon tn-shadow-blur" :class="['tn-bg-' + item.color]" style="opacity: 0.5;">
             <!-- <view class="" :class="['tn-icon-' + item.icon]"></view> -->
           </view>
           <view class="icon17__item--icon icon tn-flex tn-flex-row-center tn-flex-col-center"
-          :style="'background-image:url('+ item.doctor_pic + ');background-size:100% 100%;'">
+          :style="'background-image:url('+ item.pet_pic + ');background-size:100% 100%;'">
           </view>
         </view>
       </block>
@@ -178,7 +178,7 @@
       this.stopAccelerometer()
     },
 	computed: {
-		...mapState('doctorAbout', ['doctorList'])
+		...mapState('petAbout', ['petList'])
 	},
     methods: {
 		// 跳转
@@ -187,9 +187,9 @@
 				url: e,
 			});
 		},
-		 doctorDetail(id) {
-		   this.$store.commit('doctorAbout/SET_CURRENT_DOCTOR', id)
-		   this.tn('/circlePages/king')
+		 petDetail(id) {
+		   this.$store.commit('petAbout/SET_CURRENT_PET', id)
+		   this.tn('/minePages/petInfo')
 		 },
       // cardSwiper
       cardSwiper(e) {

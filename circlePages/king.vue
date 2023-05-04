@@ -86,7 +86,11 @@
           </view>
         </view>
       </view>
-      <view class="tn-margin-top tn-padding-top-sm tn-margin-bottom">
+	  <view class="btnList" v-if="isLogin">
+		  <tn-button class="btn" backgroundColor="#1d76f9" fontColor="#fff">预约医生</tn-button>
+		  <tn-button  class="btn" backgroundColor="#1d76f9":plain="true">镂空按钮</tn-button>
+	  </view>
+      <view class="tn-margin-bottom">
         <view class="see">      
           <view class="justify-content-item tn-flex tn-flex-col-center">
             <view style="margin-right: 10rpx;margin-left: 30rpx;">
@@ -123,52 +127,6 @@
     mixins: [template_page_mixin],
     data(){
       return {
-        tagList: [
-          {
-            color: 'red',
-            title: "萌新求带",
-          },
-          {
-            color: 'cyan',
-            title: "简约美",
-          },
-          {
-            color: 'blue',
-            title: "开心吃货",
-          },
-          {
-            color: 'green',
-            title: "爱花草",
-          },
-          {
-            color: 'orange',
-            title: "产品经理",
-          },
-          {
-            color: 'purplered',
-            title: "手工王子",
-          },
-          {
-            color: 'purple',
-            title: "创意设计",
-          },
-          {
-            color: 'brown',
-            title: "腹黑",
-          },
-          {
-            color: 'yellowgreen',
-            title: "水果控",
-          },
-          {
-            color: 'lime',
-            title: "bug多多",
-          },
-          {
-            color: 'grey',
-            title: "蠢萌蠢萌",
-          }
-        ],
         groupList: [
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
@@ -182,7 +140,8 @@
       
     },
 	computed: {
-		...mapState('doctorAbout', ['currentDoctor'])
+		...mapState('doctorAbout', ['currentDoctor']),
+		...mapState('userAbout', ['isLogin']),
 	},
   }
 </script>
@@ -643,5 +602,14 @@
     border-radius: 6rpx;
     color: #666;
     line-height: 1.6;
+  }
+  .btnList {
+	  margin-top: 15rpx;
+	  // background-color: pink;
+	  display: flex;
+  }
+  .btn {
+	  margin: 5px;
+	  flex: 1
   }
 </style>

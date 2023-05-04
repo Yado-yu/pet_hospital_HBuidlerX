@@ -336,6 +336,27 @@
 	      "enablePullDownRefresh": false
 	    }
 	  },
+	  {
+	    "path": "updatePet",
+	    "style": {
+	      "navigationBarTitleText": "修改宠物信息",
+	      "enablePullDownRefresh": false
+	    }
+	  },
+	  {
+	    "path": "pets",
+	    "style": {
+	      "navigationBarTitleText": "我的宠物",
+	      "enablePullDownRefresh": false
+	    }
+	  },
+	  {
+	    "path": "petInfo",
+	    "style": {
+	      "navigationBarTitleText": "宠物信息",
+	      "enablePullDownRefresh": false
+	    }
+	  },
       {
         "path": "message",
         "style": {

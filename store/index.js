@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import userAbout from './user.js'
 import doctorAbout from './doctor.js'
+import petAbout from './pet.js'
 
 Vue.use(Vuex)
 
@@ -74,7 +75,8 @@ const store = new Vuex.Store({
   },
   modules: {
 	  userAbout,
-	  doctorAbout
+	  doctorAbout,
+	  petAbout
   }
 })
 

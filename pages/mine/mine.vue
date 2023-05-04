@@ -101,7 +101,7 @@
       <!-- 方式12 start-->
       <view class="tn-flex">
         <view class="tn-flex-1 about-shadow tn-bg-white" style="margin: 30rpx 15rpx 0 0;padding: 30rpx 0;">
-          <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
+          <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center" @click="pets">
             <view class="icon20__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-bg-orangered tn-color-white">
               <view class="tn-icon-zodiac-shu"></view>
             </view>  
@@ -294,7 +294,7 @@
 </template>
 
 <script>
-  import { mapState } from 'vuex'
+  import { mapState, mapActions} from 'vuex'
 	
   export default {
     name: 'Mine',
@@ -310,11 +310,29 @@
 	  // 跳转到添加宠物界面
 	  addPet() {
 		  if(this.isLogin) {
-			  console.log(123)
 			  this.tn('/minePages/addpet')
 		  } else {
 			  this.$refs.tips.show({
 				msg: '添加宠物请先登录',
+				backgroundColor: '#E83A30',
+				fontColor: '#FFFFFF',
+				duration: 1500
+			  })
+			  setTimeout(()=>{
+				  this.tn('/minePages/login')
+			  }, 1500)
+		  }
+	  },
+	  // 跳转到我的宠物
+	  pets() {
+		  const token = uni.getStorageSync('userToken')
+		  const { id } = uni.getStorageSync('userInfo')
+		  if(this.isLogin) {
+			  this.getPetList({token, id})
+			  this.tn('/minePages/pets')
+		  } else {
+			  this.$refs.tips.show({
+				msg: '查看宠物请先登录',
 				backgroundColor: '#E83A30',
 				fontColor: '#FFFFFF',
 				duration: 1500
@@ -366,6 +384,7 @@
           data: "暂未上传插件市场",
         })
       },
+	  ...mapActions('petAbout', {getPetList: 'getPetList'})
     }
   }
 </script>
