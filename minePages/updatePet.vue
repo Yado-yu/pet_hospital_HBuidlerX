@@ -45,13 +45,22 @@
 
 <script>
 	import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
-	import { addPetAPI } from '@/api/pet.js'
+	import { updatePetAPI } from '@/api/pet.js'
+	import { mapState } from 'vuex'
 	
 	export default {
 		mixins: [template_page_mixin],
 		// 必须要在onReady生命周期，因为onLoad生命周期组件可能尚未创建完毕
 		onReady() {
 		  this.$refs.addPetForm.setRules(this.rules);
+		  this.form = {
+			  name: this.currentPet?.pet_name || '',
+			  age: this.currentPet?.age || '',
+			  sex: this.currentPet?.pet_gender || '',
+			  species: this.currentPet?.species || '',
+			  weight: this.currentPet?.weight || '',
+			  jueyue: this.currentPet?.isSterilization || ''
+			};
 		},
 		data() {
 		  return {
@@ -88,12 +97,12 @@
 				// 可以单个或者同时写两个触发验证方式 
 				trigger: ['change', 'blur'],
 			  }],
-			  age: [{
-				min: 1,
-				required: true,
-				message: '请选择年龄',
-				trigger: ['change', 'blur'],
-			  }],
+			 //  age: [{
+				// min: 1,
+				// required: false,
+				// message: '请选择年龄',
+				// trigger: ['change', 'blur'],
+			 //  }],
 			  sex: [{
 				  required: true,
 				  message: '请选择性别',
@@ -104,27 +113,29 @@
 				// 可以单个或者同时写两个触发验证方式 
 				trigger: ['change', 'blur'],
 			  }],
-			  weight: [{
-				required: true,
-				message: '请输入体重',
-				// 可以单个或者同时写两个触发验证方式 
-				trigger: ['change', 'blur'],
-			  }],
+			 //  weight: [{
+				// required: true,
+				// message: '请输入体重',
+				// // 可以单个或者同时写两个触发验证方式 
+				// trigger: ['change', 'blur'],
+			 //  }],
 			}
 		  }
+		},
+		computed: {
+			...mapState('petAbout', ['currentPet'])
 		},
 		methods: {
 			submit() {
 				this.$refs.addPetForm.validate(async (valid) => {
 				  if (valid) {
 					const token = uni.getStorageSync('userToken')
-					const { id } = uni.getStorageSync('userInfo')
 					try{
-						const res = await addPetAPI(this.form, token, id)
+						const res = await updatePetAPI(this.form, token, this.currentPet.pet_id)
 						if(res.status === 200) {
 							if(res.data.status === 0) {
 							this.$refs.toast.show({
-							  title: '添加成功',
+							  title: '修改宠物信息成功',
 							  content: '即将跳转到首页',
 							  icon: 'success',
 							  image: '',
@@ -139,6 +150,7 @@
 						}
 					}catch(e){
 						//TODO handle the exception
+						console.log(e)
 					}
 				  } else {
 				  }
