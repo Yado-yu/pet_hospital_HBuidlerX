@@ -87,7 +87,7 @@
         </view>
       </view>
 	  <view class="btnList" v-if="isLogin">
-		  <tn-button class="btn" backgroundColor="#1d76f9" fontColor="#fff">预约医生</tn-button>
+		  <tn-button class="btn" backgroundColor="#1d76f9" fontColor="#fff" @click="show = true">预约医生</tn-button>
 		  <tn-button  class="btn" backgroundColor="#1d76f9":plain="true">镂空按钮</tn-button>
 	  </view>
       <view class="tn-margin-bottom">
@@ -110,6 +110,23 @@
         <image src='/static/images/admin.jpg' class='share-img png round shadow-lg bg-white' mode='aspectFit'>
         </image>
       </button> -->
+	  <tn-popup v-model="show" mode="bottom" length="40%">
+		  <view class="titleYuyue">
+			预约{{currentDoctor.doctor_name}}医生
+		  </view>
+	    <view class="pickPet">
+			<tn-button backgroundColor="#006ef2" fontColor="#fff" width="300rpx" class="petBtn"
+				@click="selectShow = true">{{ pickPet.label || '点击选择宠物'}}</tn-button>
+			<tn-select v-model="selectShow" mode="single" :list="petOptions" @confirm="confirm"></tn-select>
+			
+			<tn-button backgroundColor="#006ef2" fontColor="#fff" class="timeBtn" width="300rpx"
+				@click="timeShow = true">{{ timeStr || '点击选择时间'}}</tn-button>
+			<tn-picker mode="time" v-model="timeShow" @confirm="timeConfirm"></tn-picker>
+		</view>
+		<tn-button backgroundColor="#006ef2" fontColor="#fff" @click="submit"
+			style="margin-left: 50rpx;">提交预约单</tn-button>
+			<tn-tips ref="tips" position="center"></tn-tips>
+	  </tn-popup>
     </view>
 
 
@@ -121,27 +138,101 @@
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
   import { mapState } from 'vuex'
+  import { getDoctorListAPI } from '@/api/appointment.js'
   
   export default {
     name: 'TemplateKing',
     mixins: [template_page_mixin],
     data(){
       return {
+		show: false,
+		selectShow: false,
+		timeShow: false,
+		timeStr: '',
+		pickPet: {},
+		appointmentName: '',
+		type: 'select',
         groupList: [
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
           {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
           {src: 'https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg'},
-        ]
+        ],
+		petOptions: []
       }
     },
+	onReady() {
+		this.petOptions = this.petList.map(({ pet_id, pet_name, ...rest }) => ({
+		  value: pet_id,
+		  label: pet_name,
+		  ...rest,
+		}))
+	},
     methods: {
-      
+		tn(e) {
+			uni.navigateTo({
+				url: e,
+			});
+		},
+		confirm(e) {
+			const [ obj ] = e
+			this.pickPet = obj
+			this.appointmentName = `${this.pickPet.label}的预约单`
+		},
+		timeConfirm(e) {
+			const { year, month, day } = e
+			this.timeStr = `${year}-${month}-${day}`
+		},
+		async submit() {
+			if(!this.pickPet.label) {
+				this.$refs.tips.show({
+				  msg: '请选择你的爱宠',
+				  backgroundColor: '#ffb13b',
+				  fontColor: '#FFFFFF',
+				  duration: 1500
+				})
+			} else if(!this.timeStr) {
+				this.$refs.tips.show({
+				  msg: '请选择预约的时间',
+				  backgroundColor: '#ffb13b',
+				  fontColor: '#FFFFFF',
+				  duration: 1500
+				})
+			} else {
+				const token = uni.getStorageSync('userToken')
+				const { id } = uni.getStorageSync('userInfo')
+				// console.log(this.appointmentName, this.timeStr, id, this.currentDoctor.doctor_id, token)
+				try{
+					const res = await getDoctorListAPI(this.appointmentName, this.timeStr, id, this.currentDoctor.doctor_id, token)
+					console.log(res)
+					if(res.status === 200) {
+						if(res.data.status === 0) {
+							this.$refs.tips.show({
+							  msg: '预约成功！即将跳转',
+							  backgroundColor: '#13c145',
+							  fontColor: '#FFFFFF',
+							  duration: 1500
+							})
+						}
+						setTimeout(()=>{
+							this.tn('/pages/index')
+						}, 1500)
+					}
+				}catch(e){
+					//TODO handle the exception
+					console.log(e)
+				}
+			}
+		},
+		test() {
+			console.log(123)
+		}
     },
 	computed: {
 		...mapState('doctorAbout', ['currentDoctor']),
 		...mapState('userAbout', ['isLogin']),
+		...mapState('petAbout', ['petList'])
 	},
   }
 </script>
@@ -611,5 +702,24 @@
   .btn {
 	  margin: 5px;
 	  flex: 1
+  }
+  .pickPet {
+	  height: 300rpx;
+	  // background-color: pink;
+	  display: flex;
+	  flex-direction: column;
+	  margin: 50rpx;
+  }
+  .titleYuyue {
+	  margin: 50rpx;
+	  padding-left: 20rpx;
+	  font-size: 45rpx;
+  }
+  .petBtn {
+	  flex: 1;
+  }
+  .timeBtn {
+	  flex: 1;
+	  margin-top: 50rpx;
   }
 </style>

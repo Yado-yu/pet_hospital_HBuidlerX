@@ -7,7 +7,9 @@ export default {
     currentPet: {},
   },
   actions: {
-    async getPetList({ commit }, { token, id }) {
+    async getPetList({ commit }) {
+	  const token = uni.getStorageSync('userToken')
+	  const { id } = uni.getStorageSync('userInfo')
       try {
         const res = await getPetListAPI(token, id)
         if (res.status === 200) {

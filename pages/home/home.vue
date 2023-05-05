@@ -394,6 +394,7 @@
       }
 	  // 获取医生列表
 	  await this.getDoctorList()
+	  await this.getPetList()
     },
 	computed: {
 		...mapState('doctorAbout', ['doctorList'])
@@ -417,7 +418,8 @@
 		  this.$store.commit('doctorAbout/SET_CURRENT_DOCTOR', id)
 		  this.tn('/circlePages/king')
 	  },
-	  ...mapActions('doctorAbout', {getDoctorList: 'getDoctorList'})
+	  ...mapActions('doctorAbout', {getDoctorList: 'getDoctorList'}),
+	  ...mapActions('petAbout', {getPetList: 'getPetList'})
     }
   }
 </script>

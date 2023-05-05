@@ -325,10 +325,8 @@
 	  },
 	  // 跳转到我的宠物
 	  pets() {
-		  const token = uni.getStorageSync('userToken')
-		  const { id } = uni.getStorageSync('userInfo')
 		  if(this.isLogin) {
-			  this.getPetList({token, id})
+			  // this.getPetList({token, id})
 			  this.tn('/minePages/pets')
 		  } else {
 			  this.$refs.tips.show({
@@ -384,7 +382,7 @@
           data: "暂未上传插件市场",
         })
       },
-	  ...mapActions('petAbout', {getPetList: 'getPetList'})
+	  // ...mapActions('petAbout', {getPetList: 'getPetList'})
     }
   }
 </script>
