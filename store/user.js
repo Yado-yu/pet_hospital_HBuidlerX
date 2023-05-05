@@ -4,7 +4,8 @@ export default {
 	namespaced: true,
 	state: {
 		userInfo: uni.getStorageSync('userInfo') || {},
-		isLogin: uni.getStorageSync('userInfo') ? true : false
+		isLogin: uni.getStorageSync('userInfo') ? true : false,
+		appointmentList: []
 	},
 	actions: {
 		async getUserInfo( { commit }, token) {
@@ -18,6 +19,9 @@ export default {
 			}catch(e){
 				//TODO handle the exception
 			}
+		},
+		async getAppointmentList() {
+			
 		}
 	},
 	mutations: {

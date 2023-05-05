@@ -174,7 +174,7 @@
                 <view class="tn-icon-order" style="color: #080808;"></view>
               </view>
               <view class="tn-text-center">
-                <text class="tn-text-ellipsis">历史订单</text>
+                <text class="tn-text-ellipsis">预约订单</text>
               </view>
             </view>
           </view>

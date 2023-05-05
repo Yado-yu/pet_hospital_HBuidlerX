@@ -12,7 +12,7 @@
         <view class="custom-nav__search tn-flex tn-flex-col-center tn-flex-row-center">
           <view class="custom-nav__search__box tn-flex tn-flex-col-center tn-flex-row-left tn-color-gray--dark">
             <view class="custom-nav__search__icon tn-icon-search"></view>
-            <view class="custom-nav__search__text">搜索我的订单</view>
+            <view class="custom-nav__search__text">搜索我的预约单</view>
           </view>
         </view>
       </view>
@@ -29,27 +29,29 @@
         
         <swiper-item class="order__swiper__item">
           <scroll-view :style="{height: `${swiperHeight}px`}" scroll-y>
-            <view v-for="(item,index) in 6" :key="index" class="order__item">
+            <view v-for="(item,index) in appointmentList" :key="index" class="order__item">
               <view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__head__title">图鸟官方小店<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
-                <view class="order__item__head__status">完成</view>
+                <view class="order__item__head__title">{{item.appointment_name}}<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
+                <view class="order__item__head__status">预约进行中</view>
               </view>
               
               <view class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-center">
                 <view class="order__item__content__image">
-                  <image src="https://tnuiimage.tnkjapp.com/shop/prototype2.jpg" mode="scaleToFill"></image>
+                  <image src="https://globalimg.sucai999.com/preimg/E625C8/700/E625C8/144/358c77895cb5c9f0d4fed098df3e92ab.jpg?x-oss-process=image/resize,w_900" mode="scaleToFill"></image>
                 </view>
                 <view class="order__item__content__title">
-                  图鸟官方设计 酷炫效果展示 让用户眼前一亮的赶脚
+                  {{item.appointment_name}}
+				  {{item.appointment_name}}
+				  {{item.appointment_name}}
                 </view>
                 <view class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
-                  <view class="order__item__content__info__price">
-                    <text class="order__item__content__info__price--unit">￥</text>
-                    <text class="order__item__content__info__price__value--integer">1000</text>
-                    <text class="order__item__content__info__price__value--decimal">.00</text>
+                 <view class="order__item__content__info__price">
+                    <!-- <text class="order__item__content__info__price--unit">￥</text> -->
+                    <text class="order__item__content__info__price__value--integer">{{item.date}}</text>
+                    <!-- <text class="order__item__content__info__price__value--decimal">.00</text> -->
                   </view>
                   <view class="order__item__content__info__count">
-                    <text>共1件</text>
+                    <text>共1次</text>
                   </view>
                 </view>
               </view>
@@ -59,223 +61,16 @@
                   <text class="order__item__operaation__left--text">更多</text>
                 </view>
                 <view class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
-                  <view class="order__item__operaation__right__button">
+                  <!-- <view class="order__item__operaation__right__button">
                     <tn-button shadow shape="round" fontColor="#080808" backgroundColor="#E6E6E6" :fontSize="24" height="auto" padding="10rpx 18rpx">查看发票</tn-button>
+                  </view> -->
+                  <view class="order__item__operation__right__button">
+                    <tn-button shadow shape="round" fontColor="#FFFFFF" @click="cancelHandle(item.appointment_id)"
+						backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">取消预约</tn-button>
                   </view>
                   <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="#FFFFFF" backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">退换/售后</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="tn-color-white" backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">再次购买</tn-button>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="tn-padding-bottom"></view>
-          </scroll-view>
-        </swiper-item>
-        
-        <swiper-item class="order__swiper__item">
-          <scroll-view :style="{height: `${swiperHeight}px`}" scroll-y>
-            <view v-for="(item,index) in 6" :key="index" class="order__item">
-              <view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__head__title">图鸟官方小店<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
-                <view class="order__item__head__status">完成</view>
-              </view>
-              
-              <view class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="tn-flex tn-flex-nowrap tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/computer2.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/bag2.jpg" mode="scaleToFill"></image>
-                  </view>
-                </view>
-                <view class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
-                  <view class="order__item__content__info__price">
-                    <text class="order__item__content__info__price--unit">￥</text>
-                    <text class="order__item__content__info__price__value--integer">2000</text>
-                    <text class="order__item__content__info__price__value--decimal">.00</text>
-                  </view>
-                  <view class="order__item__content__info__count">
-                    <text>共2件</text>
-                  </view>
-                </view>
-              </view>
-              
-              <view class="order__item__operation tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__operaation__left">
-                  <text class="order__item__operaation__left--text">更多</text>
-                </view>
-                <view class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
-                  <view class="order__item__operaation__right__button">
-                    <tn-button shadow shape="round" fontColor="#080808" backgroundColor="#E6E6E6" :fontSize="24" height="auto" padding="10rpx 18rpx">查看发票</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="#FFFFFF" backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">退换/售后</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="tn-color-white" backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">再次购买</tn-button>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="tn-padding-bottom"></view>
-          </scroll-view>
-        </swiper-item>
-        
-        <swiper-item class="order__swiper__item">
-          <scroll-view :style="{height: `${swiperHeight}px`}" scroll-y>
-            <view v-for="(item,index) in 6" :key="index" class="order__item">
-              <view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__head__title">图鸟官方小店<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
-                <view class="order__item__head__status">完成</view>
-              </view>
-              
-              <view class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="tn-flex tn-flex-nowrap tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/card.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/cup1.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/computer2.jpg" mode="scaleToFill"></image>
-                  </view>
-                </view>
-                <view class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
-                  <view class="order__item__content__info__price">
-                    <text class="order__item__content__info__price--unit">￥</text>
-                    <text class="order__item__content__info__price__value--integer">3000</text>
-                    <text class="order__item__content__info__price__value--decimal">.00</text>
-                  </view>
-                  <view class="order__item__content__info__count">
-                    <text>共3件</text>
-                  </view>
-                </view>
-              </view>
-              
-              <view class="order__item__operation tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__operaation__left">
-                  <text class="order__item__operaation__left--text">更多</text>
-                </view>
-                <view class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
-                  <view class="order__item__operaation__right__button">
-                    <tn-button shadow shape="round" fontColor="#080808" backgroundColor="#E6E6E6" :fontSize="24" height="auto" padding="10rpx 18rpx">查看发票</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="#FFFFFF" backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">退换/售后</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="tn-color-white" backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">再次购买</tn-button>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="tn-padding-bottom"></view>
-          </scroll-view>
-        </swiper-item>
-        
-        <swiper-item class="order__swiper__item">
-          <scroll-view :style="{height: `${swiperHeight}px`}" scroll-y>
-            <view v-for="(item,index) in 6" :key="index" class="order__item">
-              <view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__head__title">图鸟官方小店<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
-                <view class="order__item__head__status">完成</view>
-              </view>
-              
-              <view class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="tn-flex tn-flex-nowrap tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/card.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/computer1.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/watch1.jpg" mode="scaleToFill"></image>
-                  </view>
-                </view>
-                <view class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
-                  <view class="order__item__content__info__price">
-                    <text class="order__item__content__info__price--unit">￥</text>
-                    <text class="order__item__content__info__price__value--integer">4000</text>
-                    <text class="order__item__content__info__price__value--decimal">.00</text>
-                  </view>
-                  <view class="order__item__content__info__count">
-                    <text>共4件</text>
-                  </view>
-                </view>
-              </view>
-              
-              <view class="order__item__operation tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__operaation__left">
-                  <text class="order__item__operaation__left--text">更多</text>
-                </view>
-                <view class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
-                  <view class="order__item__operaation__right__button">
-                    <tn-button shadow shape="round" fontColor="#080808" backgroundColor="#E6E6E6" :fontSize="24" height="auto" padding="10rpx 18rpx">查看发票</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="#FFFFFF" backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">退换/售后</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="tn-color-white" backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">再次购买</tn-button>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="tn-padding-bottom"></view>
-          </scroll-view>
-        </swiper-item>
-        
-        <swiper-item class="order__swiper__item">
-          <scroll-view :style="{height: `${swiperHeight}px`}" scroll-y>
-            <view v-for="(item,index) in 6" :key="index" class="order__item">
-              <view class="order__item__head tn-flex tn-flex-direction-row tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__head__title">图鸟官方小店<text class="order__item__head__title--right-icon tn-icon-right"></text></view>
-                <view class="order__item__head__status">完成</view>
-              </view>
-              
-              <view class="order__item__content tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="tn-flex tn-flex-nowrap tn-flex-direction-row tn-flex-col-center tn-flex-row-left">
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/card.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/pillow.jpg" mode="scaleToFill"></image>
-                  </view>
-                  <view class="order__item__content__image">
-                    <image src="https://tnuiimage.tnkjapp.com/shop/bag1.jpg" mode="scaleToFill"></image>
-                  </view>
-                </view>
-                <view class="order__item__content__info tn-flex tn-flex-direction-column tn-flex-col-center tn-flex-row-center">
-                  <view class="order__item__content__info__price">
-                    <text class="order__item__content__info__price--unit">￥</text>
-                    <text class="order__item__content__info__price__value--integer">5000</text>
-                    <text class="order__item__content__info__price__value--decimal">.00</text>
-                  </view>
-                  <view class="order__item__content__info__count">
-                    <text>共5件</text>
-                  </view>
-                </view>
-              </view>
-              
-              <view class="order__item__operation tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-between">
-                <view class="order__item__operaation__left">
-                  <text class="order__item__operaation__left--text">更多</text>
-                </view>
-                <view class="order__item__operation__right tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-right">
-                  <view class="order__item__operaation__right__button">
-                    <tn-button shadow shape="round" fontColor="#080808" backgroundColor="#E6E6E6" :fontSize="24" height="auto" padding="10rpx 18rpx">查看发票</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="#FFFFFF" backgroundColor="#080808" :fontSize="24" height="auto" padding="10rpx 18rpx">退换/售后</tn-button>
-                  </view>
-                  <view class="order__item__operation__right__button">
-                    <tn-button shadow shape="round" fontColor="tn-color-white" backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">再次购买</tn-button>
+                    <tn-button shadow shape="round" fontColor="tn-color-white" @click="updateHandele(item)"
+						backgroundColor="tn-cool-bg-color-1" :fontSize="24" height="auto" padding="10rpx 18rpx">修改预约</tn-button>
                   </view>
                 </view>
               </view>
@@ -287,34 +82,41 @@
       </swiper>
     </view>
     
-    
+	<tn-picker mode="time" v-model="show" @confirm="timeConfirm"></tn-picker>
+    <tn-tips ref="tips" position="center"></tn-tips>
     
   </view>
 </template>
 
 <script>
   import templatePageMixin from '@/libs/mixin/template_page_mixin.js'
+  import { getAppByUerIdAPI, cancelAppointmentAPI, updateAppAPI } from '@/api/appointment.js'
   
   export default {
     name: 'TemplateOrder',
     mixins: [templatePageMixin],
     data() {
       return {
+		show: false,
+		timeStr: '',
+		appId: 0,
+		appNme: '',
         list: [
           {name: '全部'},
-          {name: '待付款'},
-          {name: '待发货', count: 10},
-          {name: '待收货'},
-          {name: '待评价', count: 5}
+          // {name: '待付款'},
+          // {name: '待发货', count: 10},
+          // {name: '待收货'},
+          // {name: '待评价', count: 5}
         ],
         tabsIndex: 0,
         swiperIndex: 0,
         swiperTop: 0,
-        swiperHeight: 0
+        swiperHeight: 0,
+		appointmentList: []
       }
     },
     onLoad() {
-      
+		this.getAppList()
     },
     onReady() {
       this.$nextTick(() => {
@@ -322,6 +124,72 @@
       })
     },
     methods: {
+	  // 修改预约单
+	  updateHandele({appointment_id, appointment_name}) {
+		this.show = true
+		this.appId = appointment_id
+		this.appName = appointment_name
+		// console.log(this.appId, this.appName)
+	  },
+	  // 删除预约单
+	  async cancelHandle(id) {
+		  const token = uni.getStorageSync('userToken')
+		  try{
+		  	const res = await cancelAppointmentAPI(id, token)
+			if(res.status === 200) {
+				if(res.data.status === 0) {
+					this.$refs.tips.show({
+					  msg: '删除成功',
+					  backgroundColor: '#13c145',
+					  fontColor: '#FFFFFF',
+					  duration: 1500
+					})
+				}
+				this.getAppList()
+			}
+		  }catch(e){
+		  	//TODO handle the exception
+		  }
+	  },
+	  // 获取预约列表
+	  async getAppList() {
+		  const token = uni.getStorageSync('userToken')
+		  const { id } = uni.getStorageSync('userInfo')
+		  try{
+			const res = await getAppByUerIdAPI(id, token)
+				if(res.status === 200) {
+					if(res.data.status === 0) {
+						this.appointmentList = res.data.data
+					}
+				}
+		  }catch(e){
+			//TODO handle the exception
+				console.log(e)
+		  }
+	  },
+	  // 修改预约时间
+	  async timeConfirm(e) {
+		  const token = uni.getStorageSync('userToken')
+		  const { year, month, day } = e
+		  this.timeStr = `${year}-${month}-${day}`
+		  try{
+			const res = await updateAppAPI(this.appId, this.timeStr, this.appName, token)
+		  	if(res.status === 200) {
+		  		if(res.data.status === 0) {
+					this.getAppList()
+		  			this.$refs.tips.show({
+		  			  msg: '修改成功',
+		  			  backgroundColor: '#13c145',
+		  			  fontColor: '#FFFFFF',
+		  			  duration: 1500
+		  			})
+		  		}
+		  	}
+		  }catch(e){
+		  	//TODO handle the exception
+			console.log(e)
+		  }
+	  },
       // 计算可滑动区域的高度信息
       updateSwiperInfo() {
         // 获取可滑动菜单的信息
