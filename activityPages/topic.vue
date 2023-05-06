@@ -18,8 +18,8 @@
         <!-- 答题切换 -->
         <view class="tn-flex tn-flex-direction-row tn-flex-nowrap tn-flex-col-center tn-flex-row-center">
           <view class="" style="opacity: 0.95;" v-if="currentModeIndex === 0">
-            <tn-circle-progress :percent="30" :striped="true" activeColor="#9EBEFF">
-              <view class="tn-color-white">第6题</view>
+            <tn-circle-progress :percent="0" :striped="true" activeColor="#9EBEFF">
+              <view class="tn-color-white">陪伴</view>
             </tn-circle-progress>
           </view>
           <view class="" style="opacity: 0.95;" v-if="currentModeIndex === 1">

@@ -76,7 +76,7 @@
             <view class="tn-icon-discover-planet-fill tn-cool-color-icon4 tn-cool-bg-color-5"></view>
           </view>  
           <view class="tn-color-gray--dark tn-text-center">
-            <text class="tn-text-ellipsis">知识星球</text>
+            <text class="tn-text-ellipsis">陪伴宠物</text>
           </view>
         </view>
       </view>
@@ -106,7 +106,7 @@
             <view class="tn-icon-creative-fill tn-cool-color-icon4 tn-cool-bg-color-3"></view>
           </view>  
           <view class="tn-color-gray--dark tn-text-center">
-            <text class="tn-text-ellipsis">课程学习</text>
+            <text class="tn-text-ellipsis">如何陪伴</text>
           </view>
         </view>
       </view>
@@ -117,15 +117,21 @@
       <view class="nav_title--wrap">
         <view class="nav_title tn-cool-bg-color-15">
           <text class="tn-icon-star tn-padding-right-sm"></text>
-            工 / 具 / 集 / 合
+            陪 / 伴 / 数 / 据
           <text class="tn-icon-star tn-padding-left-sm"></text>
         </view>
       </view>
     </view>
     
     <view class='nav-list tn-margin-bottom tn-margin-top'>
-      
-      <block v-for="(item, index) in list1" :key="index">
+      <!-- <view class="">
+      	今日你单陪伴数据
+      </view> -->
+	  <!-- <tn-circle-progress :percent="50" activeColor="#01BEFF"></tn-circle-progress> -->
+	  <tn-circle-progress :percent="25" activeColor="#01BEFF" :showPercent="true"></tn-circle-progress>
+	  <tn-circle-progress :percent="50" activeColor="#01BEFF" :showPercent="true"></tn-circle-progress>
+	  <tn-circle-progress :percent="75" activeColor="#01BEFF" :showPercent="true"></tn-circle-progress>
+      <!-- <block v-for="(item, index) in list1" :key="index">
         <view class="nav-list-item tn-shadow-blur tn-cool-bg-image" :class="['tn-main-gradient-' + item.color + '--light']">
           <view class="nav-link">
             <view class='title tn-text-bold' style="color: #080808;">{{ item.title }}</view>
@@ -135,34 +141,9 @@
             <view class="" :class="['tn-icon-' + item.icon]"></view>
           </view>
         </view>
-      </block>
+      </block> -->
       
     </view>
-    
-    <view class="tn-margin-top-lg">
-      <view class="nav_title--wrap">
-        <view class="nav_title tn-cool-bg-color-15">
-          <text class="tn-icon-star tn-padding-right-sm"></text>
-          友 / 情 / 链 / 接
-          <text class="tn-icon-star tn-padding-left-sm"></text>
-        </view>
-      </view>
-    </view>
-    
-    <view class='nav-list tn-margin-bottom tn-margin-top'>
-      
-      <navigator class="nav-list-item tn-shadow-blur tn-cool-bg-image" :class="['tn-main-gradient-' + item.color + '--light']" target="miniProgram" :app-id="item.appid" :path="item.path" version="release" delta="1" hover-class="none" v-for="(item, index) in linksData" :key="index">
-        <view class="nav-link">
-          <view class='title tn-text-bold' style="color: #080808;">{{ item.title }}</view>
-          <view class='join tn-color-grey tn-text-sm'>{{ item.join }} 人查看</view>
-        </view>
-        <view class="icon tn-shadow-blur" :class="['tn-bg-' + item.color]">
-          <view class="" :class="['tn-icon-' + item.icon]"></view>
-        </view>  
-      </navigator>
-      
-    </view>
-    
     
     <view class='tn-tabbar-height'></view>
     
@@ -199,180 +180,7 @@
           id: 5,
           type: 'image',
           url: 'https://tnuiimage.tnkjapp.com/index_bg/pro6.jpg',
-        }],
-        list1: [
-          {
-            icon: 'count-fill',
-            title: '称呼计算器',
-            join: '629',
-            color: 'blue'
-          },
-          {
-            icon: 'voice-fill',
-            title: '支付宝语音生成',
-            join: '268',
-            color: 'purplered'
-          },
-          {
-            icon: 'gloves-fill',
-            title: '一周天气预报',
-            join: '332',
-            color: 'cyan'
-          },
-          {
-            icon: 'moon-fill',
-            title: '今日星座运势',
-            join: '106',
-            color: 'orangeyellow'
-          },
-          {
-            icon: 'hardware-fill',
-            title: '来碗毒鸡汤',
-            join: '98',
-            color: 'indigo'
-          },
-          {
-            icon: 'signpost-fill',
-            title: '垃圾分一分',
-            join: '57',
-            color: 'red'
-          },
-          {
-            icon: 'safe-fill',
-            title: '手持弹幕',
-            join: '76',
-            color: 'green'
-          },
-          {
-            icon: 'flag-fill',
-            title: '孩子取名',
-            join: '225',
-            color: 'orange'
-          },
-          {
-            icon: 'creative-fill',
-            title: '午餐吃什么',
-            join: '422',
-            color: 'teal'
-          },
-          {
-            icon: 'wechat-fill',
-            title: '朋友圈文案',
-            join: '983',
-            color: 'orangered'
-          }
-        ],
-        linksData: [
-          {
-            icon: 'zodiac-shu',
-            join: '629',
-            color: 'purplered',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-niu',
-            join: '268',
-            color: 'blue',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-hu',
-            join: '332',
-            color: 'orangeyellow',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-tu',
-            join: '106',
-            color: 'cyan',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-long',
-            join: '98',
-            color: 'red',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-she',
-            join: '57',
-            color: 'indigo',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-ma',
-            join: '76',
-            color: 'orange',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-yang',
-            join: '225',
-            color: 'green',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-hou',
-            join: '422',
-            color: 'orangered',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-ji',
-            join: '983',
-            color: 'teal',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-gou',
-            join: '422',
-            color: 'lime',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          },
-          {
-            icon: 'zodiac-zhu',
-            join: '983',
-            color: 'yellowgreen',
-            url: '',
-            title: '群友作品',
-            appid: 'wxf3d81a452b88ff4b',
-            path: 'pages/index/index'
-          }
-        ],
-        
+        }]
       }
     },
     methods: {

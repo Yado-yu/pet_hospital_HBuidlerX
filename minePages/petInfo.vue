@@ -65,40 +65,38 @@
     <view class="tn-margin">
       <view class="tn-flex tn-flex-row-between">
         <view class="justify-content-item tn-text-bold tn-text-xl">
-          产品标签
+          陪伴数据
         </view>
       </view>
     </view>
     
-    <view class="">
+	<view class="peibanData">
+		<tn-circle-progress :percent="50" activeColor="#01BEFF" :showPercent="true" style="flex: 0.5;"></tn-circle-progress>
+		<view class="">
+			<view class="fontyy">
+				陪伴方式：遛宠
+			</view>
+			<view class="fontyy">
+				陪伴时长：30 分钟
+			</view>
+			<view class="fontyy">
+				陪伴目标；60 分钟
+			</view>
+		</view>
+	</view>
+    <!-- <view class="">
       <view class="tn-tag-content tn-margin tn-text-justify">
         <view v-for="(item, index) in tagList" :key="index" class="tn-tag-content__item tn-margin-right tn-round tn-text-sm tn-text-bold" :class="[`tn-bg-${item.color}--light tn-color-${item.color}`]">
           <text class="tn-tag-content__item--prefix">#</text> {{ item.title }}
         </view>
       </view>
-    </view>
-    
-    <!-- 边距间隔 -->
-    <view class="tn-strip-bottom"></view>
-
-    
-    <view class="tn-margin">
-      <view class="tn-flex tn-flex-row-between">
-        <view class="justify-content-item tn-text-bold tn-text-xl">
-          内容详情
-        </view>
-      </view>
-    </view>
-    
-    <view class="content-backgroup tn-margin">
-      <image src='https://tnuiimage.tnkjapp.com/content/rodion.jpg' mode='widthFix' class='backgroud-image'></image>
-    </view>
+    </view> -->
     
     <!-- 边距间隔 -->
     <view class="tn-strip-bottom"></view>
     
     <!-- 图标logo/头像 -->
-    <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin" @click="tn('/preferredPages/shop')">
+    <!-- <view class="tn-flex tn-flex-row-between tn-flex-col-center tn-margin" @click="tn('/preferredPages/shop')">
       <view class="justify-content-item">
         <view class="tn-flex tn-flex-col-center tn-flex-row-left">
           <view class="logo-pic tn-shadow">
@@ -128,18 +126,7 @@
           <text class="tn-icon-send-fill tn-padding-xs"></text>
         </view>
       </view>
-    </view>
-    
-    
-    <!-- 边距间隔 -->
-    <view class="tn-strip-bottom"></view>
-    
-    <view class="tn-margin-top-sm">
-      <tn-sticky :offsetTop="10" :customNavHeight="vuex_custom_bar_height">
-        <tn-tabs :list="fixedList" :current="current" :isScroll="false" activeColor="#000" bold="true" :fontSize="32" :badgeOffset="[20, 50]" @change="tabChange"></tn-tabs>
-      </tn-sticky>
-    </view>
-   
+    </view> -->   
     
     <!-- 推荐 -->
     <view class="" v-if="current==0">
@@ -147,7 +134,7 @@
         <view class="nav_title--wrap">
           <view class="nav_title tn-cool-bg-color-15">
             <text class="tn-icon-relation tn-padding-right-sm tn-text-xxl"></text>
-            <text class="tn-text-xl">好物推荐 · 商品推荐</text>
+            <text class="tn-text-xl">常用药物 · 解决疾病</text>
             <text class="tn-icon-relation tn-padding-left-sm tn-text-xxl"></text>
           </view>
         </view>
@@ -416,8 +403,8 @@
             userName: '可我会像',
             date: '2021年12月20日',
             label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype2.jpg',
+            desc: '大宠爱同驱虫滴剂',
+            mainImage: 'https://img13.360buyimg.com/n0/jfs/t1/90926/3/15186/264299/5e6ed73eEf8e45da3/530a7c2682f359f6.png',
             viewUser: {
               latestUserAvatar: [
                 {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
@@ -436,8 +423,8 @@
             userName: '可我会像',
             date: '2021年12月20日',
             label: ['炸串','火锅'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype1.jpg',
+            desc: '解决泌尿问题',
+            mainImage: 'https://img.tusij.com/qiantu_assets/user_download_ue/2021-05-12/qt_f805446f55627af5dfbcae468f869b90_19513.jpg!w390?auth_key=1699574400-0-0-2664ab00f0f95a9f58276cd5d11f0a66',
             viewUser: {
               latestUserAvatar: [
                 {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
@@ -456,8 +443,8 @@
             userName: '可我会像',
             date: '2021年12月20日',
             label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/computer2.jpg',
+            desc: '氟苯尼考甲硝唑滴耳液',
+            mainImage: 'https://www.gsyuan.com/uploads/20210122/fa86055923d87881df90c9bc1c5afa21.jpg',
             viewUser: {
               latestUserAvatar: [
                 {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
@@ -476,574 +463,8 @@
             userName: '可我会像',
             date: '2021年12月20日',
             label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '我们都是好孩子',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/watch1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/sticker.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/card.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          }
-        ],
-        content2: [
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['炸串','火锅'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 129,
-            commentCount: 999,
-            likeCount: 999
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/sticker.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/card.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/computer2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '我们都是好孩子',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/watch1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          }
-        ],
-        content3: [
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '我们都是好孩子',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/watch1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['炸串','火锅'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 129,
-            commentCount: 999,
-            likeCount: 999
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/sticker.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/card.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/computer2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          }
-        ],
-        content4: [
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/card.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/computer2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '我们都是好孩子',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/watch1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['炸串','火锅'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype1.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/prototype2.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 129,
-            commentCount: 999,
-            likeCount: 999
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/sticker.jpg',
-            viewUser: {
-              latestUserAvatar: [
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg'},
-                {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_4.jpeg'},
-              ],
-              viewUserCount: 129
-            },
-            collectionCount: 265,
-            commentCount: 22,
-            likeCount: 62
-          },
-          {
-            userAvatar: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg',
-            userName: '可我会像',
-            date: '2021年12月20日',
-            label: ['烤肉','烤肉'],
-            desc: '免费开源可商用组件',
-            mainImage: 'https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg',
+            desc: '盐酸多西环素片',
+            mainImage: 'https://www.gsyuan.com/uploads/20210127/35e5d8e9b2c761c1f0a2ff92b24df985.png',
             viewUser: {
               latestUserAvatar: [
                 {src: 'https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg'},
@@ -1422,5 +843,13 @@
   }
   .petImg {
 	  width: 100%;
+  }
+  .peibanData {
+	  display: flex;
+  }
+  .fontyy {
+	  margin-top: 15rpx;
+	  font-weight: 700;
+	  font-size: 30rpx;
   }
 </style>

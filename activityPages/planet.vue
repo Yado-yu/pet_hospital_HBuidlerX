@@ -18,12 +18,12 @@
         :autoplay="false" duration="500" interval="18000" @change="cardSwiper"> 
         <swiper-item v-for="(item,index) in swiperList" :key="index" :class="cardCur==index?'cur':''">
           <view class="swiper-item image-banner">
-            <image :src="item.url" mode="heightFix" v-if="item.type=='image'" ></image>
+            <image :src="item.pet_pic" mode="heightFix" v-if="item.type=='image'" ></image>
           </view>
           <view class="swiper-item-text tn-text-center">
             <view class="tn-text-bold tn-padding-top-xs tn-color-white">
               <text class="tn-icon-copy tn-padding-right-xs"></text>
-              {{item.name}}
+              {{item.peiban}}
               <text class="tn-icon-copy tn-padding-left-xs"></text>
             </view>
           </view>
@@ -33,9 +33,9 @@
       
       <view class="indication">
           <block v-for="(item,index) in swiperList" :key="index">
-              <view class="spot tn-text-center tn-padding-top-sm tn-shadow-blur" :style="'color:'+ item.color + ';'" :class="cardCur==index?'active':''" @tap.stop="handleSwiperClick(index)">
+              <view class="spot tn-text-center tn-padding-top-sm tn-shadow-blur" style="color:white;" :class="cardCur==index?'active':''" @tap.stop="handleSwiperClick(item,index)">
                 <view class="tn-text-xxl icon-text" :class="'tn-icon-'+ item.icon + ';' "></view>
-                <view class="tn-text-sm">{{item.get}}</view>
+                <view class="tn-text-sm">{{item.pet_name}}</view>
               </view>
           </block>
       </view>
@@ -43,15 +43,16 @@
       
       <!-- 悬浮按钮-->
       <view class="tn-flex tn-footerfixed">
-        <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center" @click="tn('/activityPages/topic')">
-          <tn-button shape="round" backgroundColor="#FFF00D" padding="40rpx 0" width="60%" shadow fontBold @tap="upload">
+        <view class="tn-flex-1 justify-content-item tn-margin-sm tn-text-center" @click="peibanHandle">
+          <tn-button shape="round" backgroundColor="#FFF00D" padding="40rpx 0" width="60%" shadow fontBold >
             <text class="tn-icon-light tn-padding-right-xs tn-color-black"></text>
-            <text class="tn-color-black">前往答题</text>
+            <text class="tn-color-black">今日已陪伴</text>
             <text class="tn-icon-light tn-padding-left-xs tn-color-black"></text>
           </tn-button>
         </view>
       </view>
-      
+	  
+      <tn-tips ref="tips" position="top"></tn-tips>
       <view class='tn-tabbar-height'></view>
 
   </view>
@@ -59,41 +60,23 @@
 
 <script>
   import template_page_mixin from '@/libs/mixin/template_page_mixin.js'
+  import { mapState } from 'vuex'
+  
   export default {
     name: 'TemplatePlanet',
     mixins: [template_page_mixin],
+	onReady() {
+		// console.log(this.petList, '123')
+		this.swiperList = uni.getStorageSync('petList')
+	},
+	computed: {
+		...mapState('petAbout', ['petList'])
+	},
     data(){
       return {
         cardCur: 0,
-        swiperList: [{
-          id: 0,
-          type: 'image',
-          name: '累计64839人解锁此星球',
-          get: '已解锁',
-          icon: 'cube',
-          url: 'https://tnuiimage.tnkjapp.com/planet/planet.png',
-        }, {
-          id: 1,
-          type: 'image',
-          name: '累计45353人解锁此星球',
-          get: '已解锁',
-          icon: 'cube',
-          url: 'https://tnuiimage.tnkjapp.com/planet/planet.png',
-        }, {
-          id: 2,
-          type: 'image',
-          name: '累计2341人解锁此星球',
-          get: '未解锁',
-          icon: 'lock',
-          url: 'https://tnuiimage.tnkjapp.com/planet/planet.png',
-        }, {
-          id: 3,
-          type: 'image',
-          name: '累计324人解锁此星球',
-          get: '未解锁',
-          icon: 'lock',
-          url: 'https://tnuiimage.tnkjapp.com/planet/planet.png',
-        }],
+        swiperList: [],
+		petId: '',
       }
     },
     methods: {
@@ -102,8 +85,10 @@
         this.cardCur = e.detail.current
       },
       // swiper点击事件
-      handleSwiperClick(index) {
+      handleSwiperClick({pet_id},index) {
         this.cardCur = index
+		this.petId = pet_id
+		// console.log(this.petId,index) 
       },
       // 跳转
       tn(e) {
@@ -111,6 +96,22 @@
       		url: e,
       	});
       },
+	  peibanHandle() {
+		  const tempList = uni.getStorageSync('petList')
+		  const target = tempList.find(pet => pet.pet_id === this.petId); // 查找目标对象
+		  if (target) { // 如果找到了目标对象
+		    target.peiban = '已陪伴'; // 修改对象的属性值
+			this.$refs.tips.show({
+			  msg: '陪伴成功！',
+			  backgroundColor: '#13c145',
+			  fontColor: '#FFFFFF',
+			  duration: 1500
+			})
+		  }
+		  // console.log(tempList); // 输出修改后的数组
+		  uni.setStorageSync('petList', tempList)
+		  this.swiperList = uni.getStorageSync('petList')
+	  }
     }
   }
 </script>

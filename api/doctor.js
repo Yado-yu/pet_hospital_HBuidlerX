@@ -8,3 +8,11 @@ export const getDoctorListAPI = () => {
 	  method: 'GET'
 	})
 }
+
+// 诊疗 - 智能诊疗
+export const zhenliaoAPI = (symptoms) => {
+	return request({
+		url: `/api/treat?symptoms=${symptoms}`,
+		method: 'GET'
+	})
+}

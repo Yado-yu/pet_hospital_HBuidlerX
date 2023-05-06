@@ -43,7 +43,7 @@
             <view class="tn-icon-gloves-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-df tn-text-center tn-padding-top-xs">
-            <text class="tn-text-ellipsis">学习</text>
+            <text class="tn-text-ellipsis">陪伴</text>
           </view>
         </view>
       </view>
@@ -53,7 +53,7 @@
             <view class="tn-icon-live-stream-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-df tn-text-center tn-padding-top-xs">
-            <text class="tn-text-ellipsis">视频</text>
+            <text class="tn-text-ellipsis">宠物</text>
           </view>
         </view>
       </view>
@@ -63,7 +63,7 @@
             <view class="tn-icon-image-text-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-df tn-text-center tn-padding-top-xs">
-            <text class="tn-text-ellipsis">日志</text>
+            <text class="tn-text-ellipsis">医生</text>
           </view>
         </view>
       </view>
@@ -73,7 +73,7 @@
             <view class="tn-icon-topics-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-df tn-text-center tn-padding-top-xs">
-            <text class="tn-text-ellipsis">话题</text>
+            <text class="tn-text-ellipsis">预约</text>
           </view>
         </view>
       </view>
@@ -83,20 +83,20 @@
             <view class="tn-icon-chemistry"></view>
           </view>  
           <view class="tn-color-black tn-text-df tn-text-center tn-padding-top-xs">
-            <text class="tn-text-ellipsis">沉淀</text>
+            <text class="tn-text-ellipsis">诊疗</text>
           </view>
         </view>
       </view>
     </view>
     <!-- 方式10 end-->
     
-    <view class="tn-margin study-shadow" v-for="(item, index) in 6" :key="index">
+    <view class="tn-margin study-shadow" v-for="(item, index) in 3" :key="index">
       <view class="tn-padding tn-flex tn-flex-col-center">
         <view class="tn-tag-content tn-shadow-blur tn-cool-bg-color-15 tn-margin-right tn-text-sm tn-text-bold">
-          <text class="tn-padding-right-sm">#</text> 前端
+          <text class="tn-padding-right-sm">#</text> 陪伴
         </view>
         <view class="tn-text-bold tn-text-lg">
-          Flex前端基础布局知识一览
+          宠物为什么需要陪伴
         </view>
       </view>
       <view class="tn-flex tn-flex-col-center tn-flex-row-between tn-padding">
@@ -110,7 +110,7 @@
         </view>
         <view class="tn-flex-1 justify-content-item tn-text-lg tn-text-right">
           <view class="tn-padding-bottom-xs tn-color-gray">
-            免费
+            开始学习
           </view>
         </view>
       </view>
@@ -134,23 +134,23 @@
         swiperList: [{
           id: 0,
           type: 'image',
-          title: '一起学习',
-          name: '文案之类的',
-          text: '小文案小文案小文案',
+          title: '陪伴',
+          name: '宠物需要主人陪伴',
+          text: '陪伴增加宠物幸福感',
           url: 'https://tnuiimage.tnkjapp.com/swiper/banner-animate3.png',
           pngurl: 'https://tnuiimage.tnkjapp.com/login/1/login_top3.png'
         }, {
           id: 1,
           type: 'image',
-          title: '图鸟南南',
-          name: '欢迎加入东东们',
-          text: '如果你也有不错的作品',
+          title: '宠物健康',
+          name: '陪伴很重要',
+          text: '小文案小文案',
           url: 'https://tnuiimage.tnkjapp.com/swiper/banner-animate2.png',
           pngurl: 'https://tnuiimage.tnkjapp.com/swiper/c4d1.png'
         }, {
           id: 2,
           type: 'image',
-          title: '图鸟西西',
+          title: 'yado',
           name: '一起玩转scss',
           text: '用最少的代码做最骚的效果',
           url: 'https://tnuiimage.tnkjapp.com/swiper/deer.jpg',
@@ -158,15 +158,15 @@
         }, {
           id: 3,
           type: 'image',
-          title: '图鸟北北',
-          name: '微信号 tnkewo',
-          text: '商业合作请联系作者',
+          title: 'yado',
+          name: '微信号 yadoOike',
+          text: '请联系作者',
           url: 'https://tnuiimage.tnkjapp.com/swiper/banner-animate.png',
           pngurl: 'https://tnuiimage.tnkjapp.com/swiper/c4d1.png'
         }, {
           id: 4,
           type: 'image',
-          title: '图鸟猪猪',
+          title: 'yado',
           name: '努力成为大佬',
           text: '一起加油吖',
           url: 'https://tnuiimage.tnkjapp.com/shop/banner2.jpg',

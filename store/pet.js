@@ -31,8 +31,11 @@ export default {
         return {
           ...pet,
           color: colors[index % colors.length],
+		  peiban: '未陪伴',
+		  type: 'image'
         };
       });
+	  uni.setStorageSync('petList', state.petList)
       console.log(state.petList)
     },
     SET_CURRENT_PET(state, id) {

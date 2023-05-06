@@ -337,6 +337,13 @@
 	    }
 	  },
 	  {
+	    "path": "zhenliao",
+	    "style": {
+	      "navigationBarTitleText": "智能诊疗",
+	      "enablePullDownRefresh": false
+	    }
+	  },
+	  {
 	    "path": "updatePet",
 	    "style": {
 	      "navigationBarTitleText": "修改宠物信息",

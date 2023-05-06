@@ -22,7 +22,7 @@
       </view>
     </tn-nav-bar>
     
-    <swiper class="card-swiper" @click="tn('/homePages/navigation')" :circular="true"
+    <swiper class="card-swiper" :circular="true"
       :autoplay="true" duration="500" interval="8000" @change="cardSwiper"> 
       <swiper-item v-for="(item,index) in swiperList" :key="index" :class="cardCur==index?'cur':''">
         <view class="swiper-item image-banner">
@@ -43,7 +43,7 @@
     
     
     <!-- 方式12 start-->
-    <view v-if="isAndroid" class="tn-flex tn-margin-xs tn-padding-top-sm">
+   <view v-if="isAndroid" class="tn-flex tn-margin-xs tn-padding-top-sm">
       <view class="tn-flex-1 tn-padding-sm tn-margin-xs tn-radius" @click="tn('/homePages/hot')">
         <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
           <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-main-gradient-purplered--light tn-color-purplered">
@@ -70,7 +70,7 @@
             <view class="tn-icon-identity-fill tn-three"></view>
           </view>  
           <view class="tn-color-black tn-text-center">
-            <text class="tn-text-ellipsis">智能名片</text>
+            <text class="tn-text-ellipsis">问诊名医</text>
           </view>
         </view>
       </view>
@@ -95,7 +95,7 @@
             <view class="tn-icon-fire-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-center">
-            <text class="tn-text-ellipsis">热点资讯</text>
+            <text class="tn-text-ellipsis">动物资讯</text>
           </view>
         </view>
       </view>
@@ -105,7 +105,7 @@
             <view class="tn-icon-flower-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-center">
-            <text class="tn-text-ellipsis">商品分类</text>
+            <text class="tn-text-ellipsis">智能诊疗</text>
           </view>
         </view>
       </view>
@@ -115,17 +115,17 @@
             <view class="tn-icon-identity-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-center">
-            <text class="tn-text-ellipsis">智能名片</text>
+            <text class="tn-text-ellipsis">问诊名医</text>
           </view>
         </view>
       </view>
-      <view class="tn-flex-1 tn-padding-sm tn-margin-xs tn-radius" @click="tn('/preferredPages/website')">
+      <view class="tn-flex-1 tn-padding-sm tn-margin-xs tn-radius">
         <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
           <view class="icon12__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur tn-main-gradient-orange--light tn-color-orange">
             <view class="tn-icon-star-fill"></view>
           </view>  
           <view class="tn-color-black tn-text-center">
-            <text class="tn-text-ellipsis">星选门户</text>
+            <text class="tn-text-ellipsis">星选宠物</text>
           </view>
         </view>
       </view>

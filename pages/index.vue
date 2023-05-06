@@ -69,7 +69,7 @@
             inactiveIcon: '/static/tabbar/circle_tn.png'
           },
           {
-            title: '广场',
+            title: '陪伴',
             activeIcon: 'menu-circle',
             inactiveIcon: 'rocket',
             activeIconColor: '#FFFFFF',
@@ -78,7 +78,7 @@
             out: true
           },
           {
-            title: '优选',
+            title: '诊疗',
             activeIcon: '/static/tabbar/preferred_tnnew.png',
             inactiveIcon: '/static/tabbar/preferred_tn.png',
           },

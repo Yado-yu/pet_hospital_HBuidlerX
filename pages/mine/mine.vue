@@ -221,7 +221,7 @@
               class="icon1__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-cool-bg-color-15 tn-color-white">
               <view class="tn-icon-logo-tuniao"></view>
             </view>
-            <view class="tn-margin-left-sm tn-flex-1">关于图鸟</view>
+            <view class="tn-margin-left-sm tn-flex-1">关于宠物</view>
             <view class="tn-color-cyan--light tn-icon-link"></view>
           </view>
         </tn-list-cell>
@@ -288,7 +288,7 @@
     </view>
 
     <view class='tn-tabbar-height'></view>
-	<tn-tips ref="tips" position="top"></tn-tips>
+	<tn-tips ref="tips" position="center"></tn-tips>
 
   </view>
 </template>
