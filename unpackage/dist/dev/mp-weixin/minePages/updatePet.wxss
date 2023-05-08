@@ -1,0 +1,8 @@
+
+.form {
+		/* background-color: pink; */
+		margin-top: 100rpx;
+		margin-left: 3%;
+		width: 94%;
+}
+

@@ -8,6 +8,7 @@ export default {
 		appointmentList: []
 	},
 	actions: {
+		// #ifdef H5
 		async getUserInfo( { commit }, token) {
 			try{
 				const res = await getUserInfoAPI(token)
@@ -20,6 +21,23 @@ export default {
 				//TODO handle the exception
 			}
 		},
+		// #endif
+		
+		// #ifndef H5
+		async getUserInfo( { commit }, token) {
+			try{
+				const res = (await getUserInfoAPI(token))[1]
+				if(res.statusCode === 200) {
+					if(res.data.status === 0) {
+						commit('GET_USERINFO', res.data)
+					}
+				}
+			}catch(e){
+				//TODO handle the exception
+			}
+		},
+		// #endif
+		
 		async getAppointmentList() {
 			
 		}

@@ -88,7 +88,7 @@
       </view>
 	  <view class="btnList" v-if="isLogin">
 		  <tn-button class="btn" backgroundColor="#1d76f9" fontColor="#fff" @click="show = true">预约医生</tn-button>
-		  <tn-button  class="btn" backgroundColor="#1d76f9":plain="true">镂空按钮</tn-button>
+		  <tn-button  class="btn" backgroundColor="#1d76f9":plain="true" @click="tn('/circlePages/chat')">医生诊疗</tn-button>
 	  </view>
       <view class="tn-margin-bottom">
         <view class="see">      

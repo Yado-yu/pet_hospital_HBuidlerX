@@ -281,6 +281,39 @@
 			  console.error(err)
 		  }
 		  this.loginLoading = false
+		  // #ifndef H5
+		  this.loginLoading = true
+		  console.log((await loginAPI(this.loginUsername, this.loginPassword))[1])
+		  try {
+			  const res = await (loginAPI(this.loginUsername, this.loginPassword))[1]
+			  // if(res.statusCode === 200) {
+				  if(res.data.status === 0) {
+					  uni.setStorage({
+						key: 'userToken',
+						data: res.data.token,
+						success: async () => {
+							this.getUserInfo(res.data.token)
+							this.tn('/pages/index')
+						}
+					  })
+					 //  this.$refs.tips.show({
+						// msg: '登录成功！',
+						// backgroundColor: '#28c230',
+						// fontColor: '#FFFFFF'
+					 //  })
+				  } else {
+					  this.$refs.tips.show({
+						msg: '账号或密码错误',
+						backgroundColor: '#f64545',
+						fontColor: '#FFFFFF'
+					  })
+				  }
+			  // }
+		  } catch (err) {
+			  console.error(err)
+		  }
+		  this.loginLoading = false
+		  // #endif
 	  },
 	  //注册
 	  async reguser() {

@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "tn-circle-progress": "/tuniao-ui/components/tn-circle-progress/tn-circle-progress"
+  }
 }

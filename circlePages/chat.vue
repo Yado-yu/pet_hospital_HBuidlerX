@@ -48,485 +48,51 @@
           </view>
         </view>
         
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_北北
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tn-bg-gray--light tn-margin-sm tn-padding-sm" style="max-width: 62vw;border-radius: 0 15rpx 15rpx 15rpx;">
-                      <text class="">广东省广州市番禺区祈福新村129号</text>
-                    </view>
-                    <view class="">
-                      <text class="tn-icon-location-fill tn-color-blue tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-                
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_北北
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat2 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">给我抓住那只猪，站在树下那只粉色猪，不是小猪佩奇那只。立刻马上，收到请回答，OVER</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <!-- <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text> -->
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/content_1.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_锋哥
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat3 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">遵命</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <!-- <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text> -->
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/content_1.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_锋哥
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat3 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="tn-icon-sound tn-text-lg"></text>
-                      <text class="tn-padding-left-xs">12 ''</text>
-                    </view>
-                    <view class="">
-                      <text class="tn-icon-font tn-color-black tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                
-                <view class="tn-padding-left tn-color-black">
-                  <view class="tn-padding-right tn-text-bold tn-margin-top-sm tn-text-right" style="max-width: 62vw;">
-                    图鸟_东东
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                    <view class="tnchat4 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">遵命大人</text>
-                    </view>
-                  </view>
-                </view>
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                
-              </view>
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                
-                <view class="tn-padding-left tn-color-black">
-                  <view class="tn-padding-right tn-text-bold tn-margin-top-sm tn-text-right" style="max-width: 62vw;">
-                    图鸟_东东
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <!-- <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text> -->
-                    </view>
-                    <view class="tnchat4 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">现在就去抓</text>
-                    </view>
-                  </view>
-                </view>
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                
-              </view>
-            </view>
-          </view>
-        </view>
-        
-        
-        <view class="tn-text-center">
-          <text class="tn-bg-gray--light tn-text-xs" style="border-radius: 6rpx;padding: 10rpx 14rpx;">晚上7:02</text>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_2.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_静言
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat5 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">猪猪贼那么可爱，怎么可以吃猪猪（哽咽）。烤乳猪吗？我得补一补了</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_5.png')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_西西
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat6 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">我是最骚的西西，就连气泡都与众不同</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_Jaylen
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat7 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">我的气泡，骚气十足</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_3.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_Jaylen
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tn-margin-sm" style="max-width: 62vw;">
-                      
-                      <view class="bg-img-cont tn-shadow-blur"
-                        style="background-image:url('https://tnuiimage.tnkjapp.com/content/rodion.jpg');">
-                      </view>
-                      
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/content_1.jpeg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_锋哥
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tnchat3 tn-margin-sm" style="max-width: 62vw;">
-                      <text class="">已抓到</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_肯德
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tn-margin-sm tn-padding-sm" style="max-width: 62vw;border-radius: 0 15rpx 15rpx 15rpx;background-color: #FFF00D;">
-                      <text class="">给锋哥奖猪腿</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
-        <view class="tn-margin">
-          <view class="tn-flex tn-flex-row-between tn-flex-col-center">
-            <view class="justify-content-item">
-              <view class="tn-flex tn-flex-col-top tn-flex-row-left">
-                <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/shop/phonecase1.jpg')">
-                  <view class="logo-image" >
-                  </view>
-                </view>
-                <view class="tn-padding-right tn-color-black">
-                  
-                  <view class="tn-padding-left-sm tn-text-bold tn-margin-top-sm" style="max-width: 62vw;">
-                    图鸟_肯德
-                  </view>
-                  <view class="tn-flex tn-flex-col-center">
-                    <view class="tn-margin-sm tn-padding-sm" style="max-width: 62vw;border-radius: 0 15rpx 15rpx 15rpx;background-color: #00FFC6;">
-                      <text class="">气泡切换术，变</text>
-                    </view>
-                    <view class="">
-                      <!-- 发送失败 -->
-                      <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text>
-                    </view>
-                  </view>
-                  
-                </view>
-              </view>
-            </view>
-            <view class="justify-content-item">
-              <!-- 预留空位 -->
-            </view>
-          </view>
-        </view>
-        
+		
+		<view class="tn-margin">
+		  <view class="tn-flex tn-flex-row-between tn-flex-col-center">
+		    <view class="justify-content-item">
+		      <!-- 预留空位 -->
+		    </view>
+		    <view class="justify-content-item">
+		      <view class="tn-flex tn-flex-col-top tn-flex-row-left">
+		        
+		        <view class="tn-padding-left tn-color-black">
+		          <view class="tn-padding-right tn-text-bold tn-margin-top-sm tn-text-right" style="max-width: 62vw;">
+		            图鸟_东东
+		          </view>
+		          <view class="tn-flex tn-flex-col-center">
+					  <view class="tn-bg-gray--light tn-margin-sm tn-padding-sm" style="max-width: 62vw;border-radius: 0 15rpx 15rpx 15rpx;">
+						<text class="">好的</text>
+					  </view>
+		            <view class="">
+		              <!-- 发送失败 -->
+		              <!-- <text class="tn-icon-warning-fill tn-color-purplered tn-text-xxl"></text> -->
+		            </view>
+		            <!-- <view class="tnchat4 tn-margin-sm" style="max-width: 62vw;">
+		              <text class="">现在就去抓</text>
+		            </view> -->
+		          </view>
+		        </view>
+		        <view class="logo-pic tn-shadow-blur tn-margin-top-sm" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/avatar_1.jpeg')">
+		          <view class="logo-image" >
+		          </view>
+		        </view>
+		        
+		      </view>
+		    </view>
+		  </view>
+		</view>
 
         
       </view>
       
     </view>
-    
-    
-    <!-- <view class="tn-margin tn-text-left">
-      <view class="tnchat1" style="max-width: 78vw;">
-        <view class="">
-          <text class="">我们都是好孩子我们都是好孩子</text>
-        </view>
-      </view>
-      
-      <view class="tnchat1" style="max-width: 78vw;">
-        <view class="">
-          <text class="">我们都是好孩子我们都是好孩子我们都是好孩子</text>
-        </view>
-      </view>
-      
-      <view class="tnchat1" style="max-width: 78vw;">
-        <view class="tn-bg-gray--disabled tn-padding-xs tn-radius">
-          <text class="">我们都是好孩子我们都是好孩子我们都是好孩子</text>
-        </view>
-      </view>
-      
-      <view class="tnchat1" style="max-width: 78vw;">
-        <view class="">
-          <text class="">我们</text>
-        </view>
-      </view>
-      
-      
-      <view class="tnchat1" style="max-width: 78vw;">
-        <view class="">
-          <text class="">我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子</text>
-        </view>
-      </view>
-      
-      
-      <view class="tnchat2 tn-margin-sm" style="max-width: 78vw;">
-        <view class="">
-          <text class="">我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子我们都是好孩子</text>
-        </view>
-      </view>
-      
-      <view class="tnchat2 tn-margin-sm" style="max-width: 78vw;">
-        <view class="">
-          <text class="">给我抓住那只猪</text>
-        </view>
-      </view>
-      
-    </view> -->
+	<view class="reply-container van-hairline--top">
+	  <tn-input  placeholder="说点什么...">
+	  </tn-input>
+	  <tn-button class="subBtn" backgroundColor="#01BEFF" fontColor="#fff">提交</tn-button>
+	</view>
     
     <view class='tn-tabbar-height'></view>
     
@@ -690,7 +256,21 @@
     word-break: break-word;
     width: fit-content;  
   }
-  
-  
+.reply-container {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 44px;
+  width: 100%;
+  background: #f5f5f5;
+  z-index: 9999;
+}
+.subBtn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100% !important;
+	box-sizing: border-box;
+}
   
 </style>

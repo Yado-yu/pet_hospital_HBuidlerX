@@ -49,9 +49,13 @@
           <view class="tn-flex tn-flex-col-center tn-flex-row-left" @click="tn('/minePages/set')">
             <view class="logo-pic tn-shadow">
               <view class="logo-image">
-                <view class="tn-shadow-blur" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg');width: 110rpx;height: 110rpx;background-size: cover;">
-                </view>
-              </view>
+				  <!-- #ifdef H5 -->
+                <view class="avatar" :style="`background-image:url(${userInfo.user_pic});width: 110rpx;height: 110rpx;background-size: cover;`"></view>
+				  <!-- #endif -->
+				  <!-- #ifndef H5 -->
+				  <view class="avatar" style="background-image:url('https://tnuiimage.tnkjapp.com/blogger/blogger_beibei.jpg');width: 110rpx;height: 110rpx;background-size: cover;"></view>
+				  <!-- #endif -->
+			  </view>
             </view>
             <view class="tn-padding-right">
               <view class="tn-padding-right tn-padding-left-sm tn-text-xl tn-text-bold">

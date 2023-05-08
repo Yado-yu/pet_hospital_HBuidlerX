@@ -1,0 +1,57 @@
+@charset "UTF-8";
+/**
+ * 下方引入的为Tuniao UI的集成样式文件，为scss预处理器，其中包含了一些"tn-"开头的自定义变量
+ * 使用的时候，请将下面的一行复制到您的uniapp项目根目录的uni.scss中即可
+ * Tuniao UI自定义的css类名和scss变量，均以"tn-"开头，不会造成冲突，请放心使用 
+ */
+.tn-select__content.data-v-a65b9b48 {
+  position: relative;
+}
+.tn-select__content__header.data-v-a65b9b48 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 90rpx;
+  padding: 0 40rpx;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  background-color: #FFFFFF;
+}
+.tn-select__content__header__btn.data-v-a65b9b48 {
+  padding: 16rpx;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+}
+.tn-select__content__header__title.data-v-a65b9b48 {
+  color: #080808;
+}
+.tn-select__content__header--cancel.data-v-a65b9b48 {
+  color: #AAAAAA;
+}
+.tn-select__content__header--confirm.data-v-a65b9b48 {
+  color: #01BEFF;
+}
+.tn-select__content__body.data-v-a65b9b48 {
+  width: 100%;
+  height: 500rpx;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+.tn-select__content__body__view.data-v-a65b9b48 {
+  height: 100%;
+  box-sizing: border-box;
+}
+.tn-select__content__body__item.data-v-a65b9b48 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #080808;
+  padding: 0 8rpx;
+}
+

@@ -43,11 +43,11 @@
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/1.jpg);background-size:100% 100%;">
                 </view>
                 <view class="tn-color-black tn-text-center">
-                  <text class="tn-text-ellipsis">免费问诊</text>
+                  <text class="tn-text-ellipsis">智能诊疗</text>
                 </view>
               </view>
             </view>
-            <view class="tn-flex-1 tn-padding-sm tn-margin-xs tn-radius">
+            <view class="tn-flex-1 tn-padding-sm tn-margin-xs tn-radius" @click="tn('/minePages/zhenliao')">
               <view class="tn-flex tn-flex-direction-column tn-flex-row-center tn-flex-col-center">
                 <view class="icon5__item--icon tn-flex tn-flex-row-center tn-flex-col-center tn-shadow-blur" style="background-image: url(https://tnuiimage.tnkjapp.com/icon/2.jpg);background-size:100% 100%;">
                 </view>

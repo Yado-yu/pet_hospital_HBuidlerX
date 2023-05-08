@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "智能诊疗",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "tn-nav-bar": "/tuniao-ui/components/tn-nav-bar/tn-nav-bar",
+    "tn-input": "/tuniao-ui/components/tn-input/tn-input",
+    "tn-button": "/tuniao-ui/components/tn-button/tn-button",
+    "tn-select": "/tuniao-ui/components/tn-select/tn-select",
+    "tn-circle-progress": "/tuniao-ui/components/tn-circle-progress/tn-circle-progress",
+    "tn-toast": "/tuniao-ui/components/tn-toast/tn-toast",
+    "tn-tips": "/tuniao-ui/components/tn-tips/tn-tips"
+  }
+}
